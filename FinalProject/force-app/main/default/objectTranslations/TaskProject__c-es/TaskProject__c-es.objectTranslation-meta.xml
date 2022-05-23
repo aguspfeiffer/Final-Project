@@ -9,4 +9,11 @@
         <value>TaskProjects</value>
     </caseValues>
     <gender>Feminine</gender>
+    <layouts>
+        <layout>TaskProject Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
 </CustomObjectTranslation>

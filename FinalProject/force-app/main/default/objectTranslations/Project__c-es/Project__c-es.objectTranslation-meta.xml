@@ -9,4 +9,11 @@
         <value>Projects</value>
     </caseValues>
     <gender>Feminine</gender>
+    <layouts>
+        <layout>Project Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
 </CustomObjectTranslation>
