@@ -29,6 +29,23 @@
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
+		<members>*</members>
+		<name>AuthProvider</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>ConnectedApp</name>
+	</types>
+	<types>
+		<members>Project_Management</members>
+		<members>standard__LightningSales</members>
+		<name>CustomApplication</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>CustomApplicationComponent</name>
+	</types>
+	<types>
 		<members>Account.Active__c</members>
 		<members>Account.CustomerPriority__c</members>
 		<members>Account.NumberofLocations__c</members>
@@ -133,6 +150,7 @@
 	</types>
 	<types>
 		<members>Account-Account Layout</members>
+		<members>Opportunity-Opportunity %28Sales%29 Layout</members>
 		<members>Opportunity-Opportunity Layout</members>
 		<members>OpportunityLineItem-Opportunity Product Layout</members>
 		<members>OpportunityLineItem__c-OpportunityLineItem Layout</members>
@@ -148,6 +166,7 @@
 		<name>LightningComponentBundle</name>
 	</types>
 	<types>
+		<members>Account.AllAccounts</members>
 		<members>Opportunity.MyOpportunities</members>
 		<members>Project__c.All</members>
 		<members>TaskProject__c.All</members>
@@ -155,7 +174,44 @@
 	</types>
 	<types>
 		<members>*</members>
+		<name>PermissionSet</name>
+	</types>
+	<types>
+		<members>Admin</members>
+		<name>Profile</name>
+	</types>
+	<types>
+		<members>Account</members>
+		<members>ConnectedApp</members>
+		<members>Currency</members>
+		<members>Flow</members>
+		<members>Formula</members>
+		<members>Language</members>
+		<members>Opportunity</members>
+		<members>Picklist</members>
+		<members>RecordPage</members>
+		<members>Security</members>
+		<members>Sharing</members>
+		<name>Settings</name>
+	</types>
+	<types>
+		<members>Opportunity</members>
+		<members>User</members>
+		<name>SharingRules</name>
+	</types>
+	<types>
+		<members>*</members>
 		<name>StaticResource</name>
+	</types>
+	<types>
+		<members>Account</members>
+		<members>Opportunity</members>
+		<members>OpportunityLineItem__c</members>
+		<members>ProjectLineItem__c</members>
+		<members>ProjectResource__c</members>
+		<members>Project__c</members>
+		<members>TaskProject__c</members>
+		<name>TopicsForObjects</name>
 	</types>
 	<version>53.0</version>
 </Package>
