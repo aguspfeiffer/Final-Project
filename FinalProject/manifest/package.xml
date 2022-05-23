@@ -37,6 +37,10 @@
 		<name>ConnectedApp</name>
 	</types>
 	<types>
+		<members>*</members>
+		<name>ContentAsset</name>
+	</types>
+	<types>
 		<members>Project_Management</members>
 		<members>standard__LightningSales</members>
 		<name>CustomApplication</name>
