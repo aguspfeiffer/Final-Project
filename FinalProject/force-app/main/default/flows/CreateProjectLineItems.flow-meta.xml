@@ -58,6 +58,12 @@
             <targetReference>CreateProjectLineItem</targetReference>
         </connector>
         <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>CreateProjectLineItem.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Project__c</field>
             <value>
                 <elementReference>$Record.Id</elementReference>

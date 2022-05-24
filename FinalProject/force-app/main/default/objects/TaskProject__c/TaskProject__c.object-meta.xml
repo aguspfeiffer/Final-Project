@@ -156,9 +156,8 @@
     <gender>Feminine</gender>
     <label>TaskProject</label>
     <nameField>
-        <displayFormat>TPN-{0000}</displayFormat>
         <label>TaskProject Name</label>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>TaskProjects</pluralLabel>
     <searchLayouts></searchLayouts>
