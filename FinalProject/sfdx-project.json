@@ -5,7 +5,7 @@
       "default": true
     }
   ],
-  "name": "FinalProject",
+  "name": "CloudConsulting",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "54.0"

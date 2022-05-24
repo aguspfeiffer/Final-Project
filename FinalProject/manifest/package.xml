@@ -22,15 +22,15 @@
 	</types>
 	<types>
 		<members>*</members>
-		<name>AppMenu</name>
-	</types>
-	<types>
-		<members>*</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
 		<members>*</members>
 		<name>AuthProvider</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>CompactLayout</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -42,34 +42,11 @@
 	</types>
 	<types>
 		<members>Project_Management</members>
+		<members>standard__AppLauncher</members>
 		<members>standard__LightningSales</members>
 		<name>CustomApplication</name>
 	</types>
 	<types>
-		<members>*</members>
-		<name>CustomApplicationComponent</name>
-	</types>
-	<types>
-		<members>Account.Active__c</members>
-		<members>Account.CustomerPriority__c</members>
-		<members>Account.NumberofLocations__c</members>
-		<members>Account.SLAExpirationDate__c</members>
-		<members>Account.SLASerialNumber__c</members>
-		<members>Account.SLA__c</members>
-		<members>Account.UpsellOpportunity__c</members>
-		<members>Case.EngineeringReqNumber__c</members>
-		<members>Case.PotentialLiability__c</members>
-		<members>Case.Product__c</members>
-		<members>Case.SLAViolation__c</members>
-		<members>Contact.Languages__c</members>
-		<members>Contact.Level__c</members>
-		<members>Goal.OrigGoalId__c</members>
-		<members>Lead.CurrentGenerators__c</members>
-		<members>Lead.NumberofLocations__c</members>
-		<members>Lead.Primary__c</members>
-		<members>Lead.ProductInterest__c</members>
-		<members>Lead.SICCode__c</members>
-		<members>Metric.OrigMetricId__c</members>
 		<members>Opportunity.CurrentGenerators__c</members>
 		<members>Opportunity.DeliveryInstallationStatus__c</members>
 		<members>Opportunity.EndProject__c</members>
@@ -134,10 +111,6 @@
 	</types>
 	<types>
 		<members>*</members>
-		<name>CustomObjectTranslation</name>
-	</types>
-	<types>
-		<members>*</members>
 		<name>CustomTab</name>
 	</types>
 	<types>
@@ -150,13 +123,18 @@
 	</types>
 	<types>
 		<members>*</members>
+		<name>FlowDefinition</name>
+	</types>
+	<types>
+		<members>*</members>
 		<name>GlobalValueSet</name>
 	</types>
 	<types>
-		<members>Account-Account Layout</members>
-		<members>Opportunity-Opportunity %28Sales%29 Layout</members>
+		<members>*</members>
+		<name>HomePageLayout</name>
+	</types>
+	<types>
 		<members>Opportunity-Opportunity Layout</members>
-		<members>OpportunityLineItem-Opportunity Product Layout</members>
 		<members>OpportunityLineItem__c-OpportunityLineItem Layout</members>
 		<members>ProjectLineItem__c-ProjectLineItem Layout</members>
 		<members>ProjectResource__c-ProjectResource Layout</members>
@@ -190,18 +168,12 @@
 		<members>Currency</members>
 		<members>Flow</members>
 		<members>Formula</members>
-		<members>Language</members>
 		<members>Opportunity</members>
 		<members>Picklist</members>
 		<members>RecordPage</members>
 		<members>Security</members>
 		<members>Sharing</members>
 		<name>Settings</name>
-	</types>
-	<types>
-		<members>Opportunity</members>
-		<members>User</members>
-		<name>SharingRules</name>
 	</types>
 	<types>
 		<members>*</members>
