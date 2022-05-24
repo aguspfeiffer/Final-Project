@@ -176,6 +176,11 @@
 		<name>Settings</name>
 	</types>
 	<types>
+		<members>Account</members>
+		<members>Opportunity</members>
+		<name>SharingRules</name>
+	</types>
+	<types>
 		<members>*</members>
 		<name>StaticResource</name>
 	</types>
