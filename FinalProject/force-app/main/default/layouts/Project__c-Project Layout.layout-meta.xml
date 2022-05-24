@@ -12,6 +12,10 @@
                 <field>Opportunity__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Customer__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Status__c</field>
             </layoutItems>
@@ -20,16 +24,12 @@
                 <field>AmountOpp__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Customer__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>AmountEstimated__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SquadLead__c</field>
+                <behavior>Readonly</behavior>
+                <field>QuantityTotalHours__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -42,16 +42,16 @@
                 <field>PM__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SquadLead__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>StartProject__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>EndProject__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>QuantityTotalHours__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

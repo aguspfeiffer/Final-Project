@@ -156,9 +156,8 @@
     <gender>Feminine</gender>
     <label>ProjectLineItem</label>
     <nameField>
-        <displayFormat>PLI - {0000}</displayFormat>
-        <label>ProjectLineItem Name</label>
-        <type>AutoNumber</type>
+        <label>Project Role</label>
+        <type>Text</type>
     </nameField>
     <pluralLabel>ProjectLineItems</pluralLabel>
     <searchLayouts></searchLayouts>

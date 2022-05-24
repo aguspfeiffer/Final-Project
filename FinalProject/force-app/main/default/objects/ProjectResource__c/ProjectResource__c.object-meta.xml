@@ -156,9 +156,8 @@
     <gender>Feminine</gender>
     <label>ProjectResource</label>
     <nameField>
-        <displayFormat>PRN-{0000}</displayFormat>
-        <label>ProjectResource Name</label>
-        <type>AutoNumber</type>
+        <label>Resource Name</label>
+        <type>Text</type>
     </nameField>
     <pluralLabel>ProjectResources</pluralLabel>
     <searchLayouts></searchLayouts>

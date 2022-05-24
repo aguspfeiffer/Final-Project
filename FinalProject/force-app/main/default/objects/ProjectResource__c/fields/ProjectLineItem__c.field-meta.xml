@@ -4,7 +4,7 @@
     <externalId>false</externalId>
     <label>ProjectLineItem</label>
     <referenceTo>ProjectLineItem__c</referenceTo>
-    <relationshipLabel>ProjectResources</relationshipLabel>
+    <relationshipLabel>Resources Assignment</relationshipLabel>
     <relationshipName>ProjectResources</relationshipName>
     <relationshipOrder>0</relationshipOrder>
     <reparentableMasterDetail>false</reparentableMasterDetail>
