@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EstimatedHours__c</fullName>
+    <externalId>false</externalId>
+    <formula>(((5 * ( FLOOR( ( EndTask__c  - DATE( 1900, 1, 8) ) / 7 ) ) + MIN( 5, MOD( EndTask__c - DATE( 1900, 1, 8), 7 ) ) )
+-
+(5 * ( FLOOR( ( StartTask__c  - DATE( 1900, 1, 8) ) / 7 ) ) + MIN( 5, MOD( StartTask__c - DATE( 1900, 1, 8), 7 ) ) )) + 1) * 8</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>EstimatedHours</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>
