@@ -158,7 +158,9 @@
 		<members>Admin</members>
 		<name>Profile</name>
 	</types>
+	
 	<types>
+		<members>PublicReports</members>
 		<members>PublicReports/PercentageofHoursPerRole_Kq1</members>
 		<members>PublicReports/ProjectTotalHoursVsHoursAssigned_bjT</members>
 		<name>Report</name>
