@@ -159,6 +159,11 @@
 		<name>Profile</name>
 	</types>
 	<types>
+		<members>PublicReports/PercentageofHoursPerRole_Kq1</members>
+		<members>PublicReports/ProjectTotalHoursVsHoursAssigned_bjT</members>
+		<name>Report</name>
+	</types>
+	<types>
 		<members>*</members>
 		<name>ReportType</name>
 	</types>
