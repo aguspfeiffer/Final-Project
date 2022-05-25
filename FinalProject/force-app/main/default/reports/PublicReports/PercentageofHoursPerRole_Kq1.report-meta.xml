@@ -45,7 +45,7 @@
         <field>Opportunity.Projects__r.ProjectLineItems__r$Role__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>PercentageofHoursPerRole</name>
+    <name>Percentage of Hours per Role</name>
     <params>
         <name>co</name>
         <value>0</value>

@@ -43,6 +43,15 @@
         <aggregateTypes>Sum</aggregateTypes>
         <field>Opportunity.Projects__r$QuantityTotalHours__c</field>
     </columns>
+    <filter>
+        <criteriaItems>
+            <column>Opportunity.Projects__r$Id</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>a038a00000R73pE</value>
+        </criteriaItems>
+    </filter>
     <format>Matrix</format>
     <groupingsAcross>
         <dateGranularity>Day</dateGranularity>
@@ -59,7 +68,7 @@
         <field>Opportunity.Projects__r$Name</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>ProjectTotalHoursVsHoursAssigned</name>
+    <name>Project Total Hours vs Hours Assigned</name>
     <params>
         <name>co</name>
         <value>0</value>
