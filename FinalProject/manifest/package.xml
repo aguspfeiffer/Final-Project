@@ -156,9 +156,10 @@
 	</types>
 	<types>
 		<members>Admin</members>
+		<members>Project Manager</members>
+		<members>Resourses</members>
 		<name>Profile</name>
 	</types>
-	
 	<types>
 		<members>PublicReports</members>
 		<members>PublicReports/PercentageofHoursPerRole_Kq1</members>
@@ -168,6 +169,13 @@
 	<types>
 		<members>*</members>
 		<name>ReportType</name>
+	</types>
+	<types>
+		<members>Architect</members>
+		<members>Consultant</members>
+		<members>Developer</members>
+		<members>Project_Manager</members>
+		<name>Role</name>
 	</types>
 	<types>
 		<members>Account</members>
