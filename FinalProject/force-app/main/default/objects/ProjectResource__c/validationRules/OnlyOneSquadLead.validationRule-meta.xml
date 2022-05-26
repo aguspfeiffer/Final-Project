@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>OnlyOneSquadLead</fullName>
-    <active>true</active>
-    <errorConditionFormula>IF( (ISNEW() &amp;&amp; SquadLead__c == true &amp;&amp; !ISBLANK( ProjectLineItem__r.Project__r.SquadLead__c ) ||  ISCHANGED(SquadLead__c) &amp;&amp; !ISBLANK( ProjectLineItem__r.Project__r.SquadLead__c )) , true, false)</errorConditionFormula>
-    <errorMessage>Only one SquadLead can be assigned per project</errorMessage>
-</ValidationRule>
