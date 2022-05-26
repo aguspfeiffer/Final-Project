@@ -7,7 +7,7 @@
         <chartSummaries>
             <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
-            <column>Opportunity.Projects__r$QuantityTotalHours__c</column>
+            <column>Opportunity.Projects__r.ProjectLineItems__r$QuantityHours__c</column>
         </chartSummaries>
         <chartSummaries>
             <aggregate>Sum</aggregate>
@@ -39,19 +39,6 @@
         <aggregateTypes>Sum</aggregateTypes>
         <field>Opportunity.Projects__r.ProjectLineItems__r.ProjectResources__r$HoursAssigned__c</field>
     </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Opportunity.Projects__r$QuantityTotalHours__c</field>
-    </columns>
-    <filter>
-        <criteriaItems>
-            <column>Opportunity.Projects__r$Id</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>false</isUnlocked>
-            <operator>equals</operator>
-            <value>a038a00000R73pE</value>
-        </criteriaItems>
-    </filter>
     <format>Matrix</format>
     <groupingsAcross>
         <dateGranularity>Day</dateGranularity>
