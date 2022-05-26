@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ChangeStatus</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( ISCHANGED(Status__c)&amp;&amp; (ISBLANK(SquadLead__c) ||  AmountOpp__c &lt; AmountEstimated__c ||  CompleteAssigmentHours__c == false ) , true, false)</errorConditionFormula>
+    <errorMessage>It is not possible to change the status, check the amount of the estimated amount and that the project has a SquadLead</errorMessage>
+</ValidationRule>
