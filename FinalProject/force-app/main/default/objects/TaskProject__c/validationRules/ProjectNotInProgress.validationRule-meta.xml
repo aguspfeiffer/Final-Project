@@ -2,6 +2,6 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ProjectNotInProgress</fullName>
     <active>true</active>
-    <errorConditionFormula>IF( ISNEW() &amp;&amp;  ISPICKVAL(ProjectResource__r.ProjectLineItem__r.Project__r.Status__c, &apos;In Progress&apos;) , false, true)</errorConditionFormula>
+    <errorConditionFormula>IF( ISNEW() &amp;&amp;  !ISPICKVAL(ProjectResource__r.ProjectLineItem__r.Project__r.Status__c, &apos;In Progress&apos;) , true, false)</errorConditionFormula>
     <errorMessage>Tasks cannot be created if the project status is other than In Progress</errorMessage>
 </ValidationRule>
