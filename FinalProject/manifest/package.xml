@@ -155,6 +155,7 @@
 		<name>PermissionSet</name>
 	</types>
 	<types>
+		<members>Admin</members>
 		<members>Project Manager</members>
 		<members>Resourses</members>
 		<name>Profile</name>
