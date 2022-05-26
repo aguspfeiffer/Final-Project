@@ -208,5 +208,15 @@
 		<members>TaskProject__c</members>
 		<name>TopicsForObjects</name>
 	</types>
+	<types>
+		<members>ProjectResource__c.OnlyOneSquadLead</members>
+		<members>ProjectResource__c.StatusProject</members>
+		<members>Project__c.AmountEstimated</members>
+		<members>Project__c.IncompleteRoleAssignmentHours</members>
+		<members>Project__c.SquadLeadNotAssigned</members>
+		<members>Project__c.StatusInProgress</members>
+		<members>TaskProject__c.ProjectNotInProgress</members>
+		<name>ValidationRule</name>
+	</types>
 	<version>53.0</version>
 </Package>
