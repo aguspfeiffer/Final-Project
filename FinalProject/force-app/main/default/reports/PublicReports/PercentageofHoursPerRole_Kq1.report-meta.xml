@@ -30,10 +30,6 @@
         <aggregateTypes>Sum</aggregateTypes>
         <field>Opportunity.Projects__r.ProjectLineItems__r$QuantityHours__c</field>
     </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Opportunity.Projects__r$QuantityTotalHours__c</field>
-    </columns>
     <format>Matrix</format>
     <groupingsAcross>
         <dateGranularity>Day</dateGranularity>
