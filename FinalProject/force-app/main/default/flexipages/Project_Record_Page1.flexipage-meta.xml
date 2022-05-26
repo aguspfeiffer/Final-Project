@@ -103,7 +103,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>cacheAge</name>
-                    <value>10</value>
+                    <value>1440</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
@@ -122,13 +122,6 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:reportChart</componentName>
                 <identifier>flexipage_reportChart1</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.AmountEstimated__c}</leftValue>
-                        <operator>GT</operator>
-                        <rightValue>0</rightValue>
-                    </criteria>
-                </visibilityRule>
             </componentInstance>
         </itemInstances>
         <itemInstances>

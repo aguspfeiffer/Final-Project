@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StatusProject</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( ISNEW() &amp;&amp;  ISPICKVAL(ProjectLineItem__r.Project__r.Status__c, &apos;In Progress&apos;), true, false)</errorConditionFormula>
+    <errorMessage>If the status of the project is In Progress, new assignments are not allowed.</errorMessage>
+</ValidationRule>
