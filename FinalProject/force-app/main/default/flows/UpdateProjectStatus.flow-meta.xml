@@ -3,8 +3,8 @@
     <actionCalls>
         <name>AmountOpp</name>
         <label>AmountOpp</label>
-        <locationX>699</locationX>
-        <locationY>474</locationY>
+        <locationX>757</locationX>
+        <locationY>460</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -23,15 +23,42 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <stringValue>Amount Exceeded</stringValue>
+                <stringValue>Amount Exceeded on Project {!$Record.Name}</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>EmailBothErrors</name>
+        <label>EmailBothErrors</label>
+        <locationX>1145</locationX>
+        <locationY>695</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>BothErrors</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Opportunity__r.PM__r.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>It is not possible to change the status of the project {!$Record.Name} unassigned Roles and AmountOpp exceeded</stringValue>
             </value>
         </inputParameters>
     </actionCalls>
     <actionCalls>
         <name>EmailPM</name>
         <label>EmailPM</label>
-        <locationX>774</locationX>
-        <locationY>271</locationY>
+        <locationX>766</locationX>
+        <locationY>699</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -50,52 +77,104 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <stringValue>Roles with unassigned hours</stringValue>
+                <stringValue>Roles with unassigned hours Project {!$Record.Name}</stringValue>
             </value>
         </inputParameters>
     </actionCalls>
     <apiVersion>54.0</apiVersion>
+    <assignments>
+        <name>PopulateStringVariable</name>
+        <label>PopulateStringVariable</label>
+        <locationX>1149</locationX>
+        <locationY>540</locationY>
+        <assignmentItems>
+            <assignToReference>String</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ConvertToString.Role__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>ConvertToString</targetReference>
+        </connector>
+    </assignments>
+    <collectionProcessors>
+        <name>IncompleteRoles</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>IncompleteRoles</label>
+        <locationX>963</locationX>
+        <locationY>418</locationY>
+        <assignNextValueToReference>currentItem_IncompleteRoles</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>ProjectLineItemInfo</collectionReference>
+        <conditionLogic>and</conditionLogic>
+        <conditions>
+            <leftValueReference>currentItem_IncompleteRoles.QuantityHours__c</leftValueReference>
+            <operator>GreaterThan</operator>
+            <rightValue>
+                <elementReference>currentItem_IncompleteRoles.AssignedHours__c</elementReference>
+            </rightValue>
+        </conditions>
+        <connector>
+            <targetReference>ConvertToString</targetReference>
+        </connector>
+    </collectionProcessors>
     <decisions>
-        <name>otrotest</name>
-        <label>otrotest</label>
-        <locationX>598</locationX>
-        <locationY>233</locationY>
-        <defaultConnector>
-            <targetReference>EmailPM</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <name>ErrorType</name>
+        <label>ErrorType</label>
+        <locationX>750</locationX>
+        <locationY>272</locationY>
+        <defaultConnectorLabel>ErrorRolesAndEmount</defaultConnectorLabel>
         <rules>
-            <name>istrue</name>
+            <name>AmountOppExceeded</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>prueba</leftValueReference>
+                <leftValueReference>$Record.AmountOpp__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>$Record.AmountEstimated__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CompleteAssigmentHours__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>test</targetReference>
+                <targetReference>AmountOpp</targetReference>
             </connector>
-            <label>istrue</label>
+            <label>AmountOppExceeded</label>
+        </rules>
+        <rules>
+            <name>IncompleteAssignamentRoles</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CompleteAssigmentHours__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetRecords</targetReference>
+            </connector>
+            <label>IncompleteAssignamentRoles</label>
         </rules>
     </decisions>
     <decisions>
         <name>StartDateProject</name>
         <label>StartDateProject</label>
-        <locationX>452</locationX>
-        <locationY>463</locationY>
-        <defaultConnectorLabel>OtherDate</defaultConnectorLabel>
+        <locationX>748</locationX>
+        <locationY>99</locationY>
+        <defaultConnector>
+            <targetReference>ErrorType</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Error</defaultConnectorLabel>
         <rules>
             <name>StartProject</name>
             <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.StartProject__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <elementReference>DateToday</elementReference>
-                </rightValue>
-            </conditions>
             <conditions>
                 <leftValueReference>$Record.AmountOpp__c</leftValueReference>
                 <operator>GreaterThanOrEqualTo</operator>
@@ -110,46 +189,87 @@
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.CompleteAssigmentHours__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>UpdateStatus</targetReference>
             </connector>
             <label>StartProject</label>
         </rules>
+    </decisions>
+    <decisions>
+        <name>StartProjectDate</name>
+        <label>StartProjectDate</label>
+        <locationX>470</locationX>
+        <locationY>94</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>AmountOppExeeded</name>
+            <name>StartProjectToDay</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
+                <leftValueReference>$Record.StartProject__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>DateToday</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>StartDateProject</targetReference>
+            </connector>
+            <label>StartProjectToDay</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>X1OR2Errors</name>
+        <label>1OR2Errors</label>
+        <locationX>959</locationX>
+        <locationY>702</locationY>
+        <defaultConnector>
+            <targetReference>EmailBothErrors</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>OnlyRolesIncompletes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CompleteAssigmentHours__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
                 <leftValueReference>$Record.AmountOpp__c</leftValueReference>
-                <operator>LessThan</operator>
+                <operator>GreaterThanOrEqualTo</operator>
                 <rightValue>
                     <elementReference>$Record.AmountEstimated__c</elementReference>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>AmountOpp</targetReference>
+                <targetReference>EmailPM</targetReference>
             </connector>
-            <label>AmountOppExeeded</label>
+            <label>OnlyRolesIncompletes</label>
         </rules>
     </decisions>
-    <formulas>
-        <name>prueba</name>
-        <dataType>Boolean</dataType>
-        <expression>{!test.QuantityHours__c}&lt;{!test.AssignedHours__c}</expression>
-    </formulas>
     <interviewLabel>UpdateProjectStatus {!$Flow.CurrentDateTime}</interviewLabel>
     <label>UpdateProjectStatus</label>
     <loops>
-        <name>test</name>
-        <label>test</label>
-        <locationX>427</locationX>
-        <locationY>233</locationY>
-        <collectionReference>ProjectLineItemInfo</collectionReference>
+        <name>ConvertToString</name>
+        <label>ConvertToString</label>
+        <locationX>964</locationX>
+        <locationY>540</locationY>
+        <collectionReference>IncompleteRoles</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
-            <targetReference>otrotest</targetReference>
+            <targetReference>PopulateStringVariable</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
-            <targetReference>StartDateProject</targetReference>
+            <targetReference>X1OR2Errors</targetReference>
         </noMoreValuesConnector>
     </loops>
     <processMetadataValues>
@@ -174,11 +294,11 @@
     <recordLookups>
         <name>GetRecords</name>
         <label>GetRecords</label>
-        <locationX>546</locationX>
-        <locationY>115</locationY>
+        <locationX>966</locationX>
+        <locationY>279</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>test</targetReference>
+            <targetReference>IncompleteRoles</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -191,39 +311,15 @@
         <object>ProjectLineItem__c</object>
         <outputReference>ProjectLineItemInfo</outputReference>
         <queriedFields>Id</queriedFields>
+        <queriedFields>Role__c</queriedFields>
         <queriedFields>AssignedHours__c</queriedFields>
         <queriedFields>QuantityHours__c</queriedFields>
-        <queriedFields>Role__c</queriedFields>
     </recordLookups>
-    <recordUpdates>
-        <name>UpdateComplete</name>
-        <label>UpdateComplete</label>
-        <locationX>432</locationX>
-        <locationY>44</locationY>
-        <connector>
-            <targetReference>GetRecords</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>EndProject__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>DateToday</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <field>Status__c</field>
-            <value>
-                <stringValue>Completed</stringValue>
-            </value>
-        </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
     <recordUpdates>
         <name>UpdateStatus</name>
         <label>UpdateStatus</label>
-        <locationX>266</locationX>
-        <locationY>522</locationY>
+        <locationX>917</locationX>
+        <locationY>96</locationY>
         <inputAssignments>
             <field>Status__c</field>
             <value>
@@ -234,15 +330,15 @@
     </recordUpdates>
     <start>
         <locationX>31</locationX>
-        <locationY>25</locationY>
+        <locationY>24</locationY>
         <connector>
-            <targetReference>UpdateComplete</targetReference>
+            <targetReference>StartProjectDate</targetReference>
         </connector>
         <object>Project__c</object>
         <schedule>
             <frequency>Daily</frequency>
             <startDate>2022-05-24</startDate>
-            <startTime>19:30:00.000Z</startTime>
+            <startTime>00:00:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
@@ -250,13 +346,26 @@
     <textTemplates>
         <name>AmountExceeded</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>Project ID: {!$Record.Id}  has exceeded the amount agreed in the Opportunity ID: {!$Record.Opportunity__r.Id}</text>
+        <text>Project {!$Record.Name} ID: {!$Record.Id}  has exceeded the amount agreed in the Opportunity {!$Record.Opportunity__r.Name} ID: {!$Record.Opportunity__r.Id}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>BothErrors</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>The roles {!String} have not been completely assigned and the agreed amount has been exceeded in Project {!$Record.Name} , ID: {!$Record.Id}</text>
     </textTemplates>
     <textTemplates>
         <name>EmailAssignedHoursFail</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>The hours of the role {!test.Role__c} have not been fully allocated</text>
+        <text>The hours of the role/s {!String} have not been fully allocated in Project {!$Record.Name} , ID: {!$Record.Id}</text>
     </textTemplates>
+    <variables>
+        <name>currentItem_IncompleteRoles</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ProjectLineItem__c</objectType>
+    </variables>
     <variables>
         <name>DateToday</name>
         <dataType>Date</dataType>
@@ -274,5 +383,12 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>ProjectLineItem__c</objectType>
+    </variables>
+    <variables>
+        <name>String</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
     </variables>
 </Flow>
