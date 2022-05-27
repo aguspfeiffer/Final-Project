@@ -39,29 +39,6 @@
         <aggregateTypes>Sum</aggregateTypes>
         <field>Opportunity.Projects__r.ProjectLineItems__r.ProjectResources__r$HoursAssigned__c</field>
     </columns>
-    <filter>
-        <criteriaItems>
-            <column>Opportunity.Projects__r$Id</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>false</isUnlocked>
-            <operator>equals</operator>
-            <value>a038a00000QoqLu</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>Opportunity.Projects__r$Id</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>false</isUnlocked>
-            <operator>equals</operator>
-            <value>a038a00000QoqLu</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>Opportunity.Projects__r$Id</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>false</isUnlocked>
-            <operator>equals</operator>
-            <value>a038a00000QoqLu</value>
-        </criteriaItems>
-    </filter>
     <format>Matrix</format>
     <groupingsAcross>
         <dateGranularity>Day</dateGranularity>
