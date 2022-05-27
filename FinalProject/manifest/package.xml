@@ -118,6 +118,7 @@
 		<name>CustomTab</name>
 	</types>
 	<types>
+		<members>PublicFolder/AVsfhDruzjlyyCulAcGpRedZlIMmNi</members>
 		<members>PublicFolder/CspymRNUWCjAzZQjHKOFxwmRBlkkFi</members>
 		<name>Dashboard</name>
 	</types>
@@ -177,6 +178,10 @@
 		<members>PublicReports/PercentageofHoursPerRole_Kq1</members>
 		<members>PublicReports/ProjectTotalHoursVsHoursAssigned_bjT</members>
 		<members>PublicReports/Projects_Info_ODH</members>
+		<members>PublicReports/Open_Opportunities_4RQ</members>
+		<members>PublicReports/Opportunities_Closed_Won_vs_Closed_Lost_1p2</members>
+		<members>PublicReports/Earned_Opportunities_per_Account_fXz</members>
+		<members>PublicReports/Top_3_Opportunities_of_Greater_Amount_AzR</members>
 		<name>Report</name>
 	</types>
 	<types>
