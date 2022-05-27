@@ -52,7 +52,7 @@
                 <indicatorHighColor>#00716B</indicatorHighColor>
                 <indicatorLowColor>#C23934</indicatorLowColor>
                 <indicatorMiddleColor>#FFB75D</indicatorMiddleColor>
-                <report>PublicReports/Current_Projects_Quantity_MN4</report>
+                <report>PublicReports/Current_Projects_Quantity_vw1</report>
                 <showRange>false</showRange>
             </dashboardComponent>
             <rowIndex>0</rowIndex>
