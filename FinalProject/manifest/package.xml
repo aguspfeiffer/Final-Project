@@ -114,6 +114,10 @@
 		<name>CustomTab</name>
 	</types>
 	<types>
+		<members>PublicFolder/CspymRNUWCjAzZQjHKOFxwmRBlkkFi</members>
+		<name>Dashboard</name>
+	</types>
+	<types>
 		<members>*</members>
 		<name>FlexiPage</name>
 	</types>
