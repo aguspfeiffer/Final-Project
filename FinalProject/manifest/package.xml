@@ -165,9 +165,10 @@
 		<name>Profile</name>
 	</types>
 	<types>
-		<members>PublicReports</members>
+		<members>PublicReports/Current_Projects_Quantity_vw1</members>
 		<members>PublicReports/PercentageofHoursPerRole_Kq1</members>
 		<members>PublicReports/ProjectTotalHoursVsHoursAssigned_bjT</members>
+		<members>PublicReports/Projects_Info_ODH</members>
 		<name>Report</name>
 	</types>
 	<types>
