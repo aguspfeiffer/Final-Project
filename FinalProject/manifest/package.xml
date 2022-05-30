@@ -106,6 +106,7 @@
 	<types>
 		<members>Opportunity</members>
 		<members>OpportunityLineItem__c</members>
+		<members>OutOfOffice__c</members>
 		<members>ProjectLineItem__c</members>
 		<members>ProjectResource__c</members>
 		<members>Project__c</members>
