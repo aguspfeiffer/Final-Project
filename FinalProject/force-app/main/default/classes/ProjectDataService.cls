@@ -28,7 +28,3 @@ public with sharing class ProjectDataService {
 
 //IMPORTANTE
 //[SELECT Name, AmountOpp__c, Customer__c, EndProject__c, StartProject__c, Opportunity__c FROM Project__c WHERE PMID__c =: Userinfo.getUserId()] La real
-
-
-
-
