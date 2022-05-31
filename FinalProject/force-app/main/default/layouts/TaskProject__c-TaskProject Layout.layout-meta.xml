@@ -28,7 +28,7 @@
                 <field>Resume__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>ProjectResource__c</field>
             </layoutItems>
         </layoutColumns>
