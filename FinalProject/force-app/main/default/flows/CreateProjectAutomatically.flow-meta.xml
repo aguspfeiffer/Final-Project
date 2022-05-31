@@ -58,6 +58,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.PM__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>PM__c</field>
             <value>
                 <elementReference>$Record.PM__r.LastName</elementReference>

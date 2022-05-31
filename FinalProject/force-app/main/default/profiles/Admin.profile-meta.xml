@@ -19,6 +19,10 @@
         <apexClass>ProjectDataService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>ProjectResourceTrigger</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>false</custom>
     <fieldPermissions>
         <editable>true</editable>
@@ -176,6 +180,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Project__c.Opportunity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.QuantityTotalHours__c</field>
         <readable>true</readable>
@@ -193,11 +202,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>TaskProject__c.EstimatedHours__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>TaskProject__c.ProjectResource__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

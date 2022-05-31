@@ -9,6 +9,6 @@
     <columns>Status__c</columns>
     <columns>PM__c</columns>
     <columns>Customer__c</columns>
-    <filterScope>Everything</filterScope>
+    <filterScope>Mine</filterScope>
     <label>All</label>
 </ListView>
