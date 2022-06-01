@@ -5,14 +5,18 @@ export default class AssignUserRoles extends LightningElement {
 
     @api 
     roles;
+    @api recordId;
+    
     users
     
-    @wire(getUsersByRole, {role: '$roles'})
+    @wire(getUsersByRole, {role:'$roles', projectId:'$recordId'})
     wiredUsers ({error, data}){
         if(data){
             this.users = data
-            console.log('Users: ' + data)
+            console.log('Users: ' + JSON.stringify(data))
         }
-        else if(error){}
+        else if(error){
+            console.log(error)
+        }
     }
 }
