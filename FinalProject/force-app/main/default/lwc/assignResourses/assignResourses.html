@@ -1,41 +1,18 @@
 <template>
-    <template if:true={wraperProject.projectLineItem}>
-    <template for:each={wraperProject.projectLineItem} for:item="ProjectLineItem"> 
-        <li key={wraperProject.projectLineItem.Id}>  
-    <lightning-card variant="Narrow"  title={ProjectLineItem.Role__c}  icon-name="standard:account">
-        <h3 class="slds-p-horizontal_small">{ProjectLineItem.Role__c} - Horas a Cubrir:<span>{ProjectLineItem.QuantityHours__c}</span></h3>
-        
-        <lightning-button label="Asignar" slot="actions"></lightning-button>
+    <template if:true={projectLineItem}>
+        <template for:each={projectLineItem} for:item="PLI">
+            <li key={PLI.Id}>
+                <lightning-card variant="Narrow" title={PLI.Role__c} icon-name="standard:account">
+                    <h3 class="slds-p-horizontal_small">{PLI.Role__c} - Horas a
+                        Cubrir:<span>{PLI.QuantityHours__c}</span></h3>
 
-    <div style>
-        <table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse ;">
-            <thead >
+                    <lightning-button label="Asignar" slot="actions"></lightning-button>
 
-             <tr style="background-color:rgb(61, 73, 88);"> 
-                   <th>Select</th>
-                    <th>Name</th>
-                    <th>SquadLead</th>
-                    <th>Rate p/hour</th>
-                    <th>Start</th>
-                    <th>End</th>
-                </tr>
-            </thead>
-            <tbody >
-                <template for:each={users} for:item="user">
-                    <tr key={user.Id}>
-                        <td ><input type="checkbox"></td>
-                        <td>{user.Name}</td>
-                        <td ><input type="checkbox"></td>
-                        <td >{user.RatePerHour__c}</td>
-                        <td ><lightning-input type="date" ></lightning-input></td>
-                        <td ><lightning-input type="date" ></lightning-input></td>
-                    </tr>
-                </template>
-            </tbody>
-        </table>
-    </div> 
-   </lightning-card>
-  </li>
-  </template>
- </template>
+                    <template if:true={PLI.Role__c}>
+                        <c-assign-user-roles roles={PLI.Role__c}></c-assign-user-roles>
+                    </template>
+                </lightning-card>
+            </li>
+        </template>
+    </template>
 </template>
