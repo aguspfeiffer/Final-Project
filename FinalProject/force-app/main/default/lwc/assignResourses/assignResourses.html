@@ -9,7 +9,7 @@
                     <lightning-button label="Asignar" slot="actions"></lightning-button>
 
                     <template if:true={PLI.Role__c}>
-                        <c-assign-user-roles roles={PLI.Role__c}></c-assign-user-roles>
+                        <c-assign-user-roles roles={PLI.Role__c} record-id={recordId}></c-assign-user-roles>
                     </template>
                 </lightning-card>
             </li>
