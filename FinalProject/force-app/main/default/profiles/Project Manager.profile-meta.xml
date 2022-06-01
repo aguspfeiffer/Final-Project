@@ -20,6 +20,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ProjectDataService2</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ProjectResourceTrigger</apexClass>
         <enabled>false</enabled>
     </classAccesses>
