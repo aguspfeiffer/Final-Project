@@ -8,25 +8,9 @@ public with sharing class ProjectDataService {
 
     //Obtiene los projectLineItem de un project 
     @AuraEnabled(cacheable = true)
-    public static Map<String, List<Object>> getRolesByProject (String projectId){
-    List<ProjectLineItem__c> rolesByProject = [SELECT Id, Role__c, QuantityHours__c, Project__c, AssignedHours__c FROM ProjectLineItem__c WHERE Project__c =: projectId];
-
-    Map<String, List<Object>> wraperProject = new Map<String, List<Object>>();
-    wraperProject.put('projectLineItem', rolesByProject);
-
-    List<String> ProjectRole = new List<String>();
-    for(ProjectLineItem__c pr : rolesByProject){
-        ProjectRole.add(pr.Role__c);
-    } 
-
-    //testeo ultimA HORA 
-    for(String stRole : ProjectRole){
-        List<User> userList = getUsersByRole( stRole );
-        wraperProject.put( stRole, userList );
-    }
-
-    wraperProject.put('Roles', ProjectRole);
-    return wraperProject;
+    public static List<ProjectLineItem__c> getRolesByProject (String projectId){
+        
+    return [SELECT Id, Role__c, QuantityHours__c, Project__c, AssignedHours__c FROM ProjectLineItem__c WHERE Project__c =: projectId];
 }
 
     //Obtiene los usuarios de x Rol
