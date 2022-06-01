@@ -15,12 +15,6 @@
                 <identifier>desktopDashboards_embeddedDashboard1</identifier>
             </componentInstance>
         </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentName>testeando</componentName>
-                <identifier>c_testeando1</identifier>
-            </componentInstance>
-        </itemInstances>
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>

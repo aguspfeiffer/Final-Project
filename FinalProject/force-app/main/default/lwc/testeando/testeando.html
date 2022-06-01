@@ -1,10 +1,15 @@
 <template>
-    <div style="height: 300px;">
-        <lightning-datatable 
-            key-field="id"
-            data={projects}
-            columns={columns}
-            hide-checkbox-column>
-        </lightning-datatable>
-    </div>    
+    <template for:each={projectLineItems} for:item="PLI">
+        <div key={PLI.Id} style="height: 300px;">
+            <h1>{PLI.Role__c} Horas a Asignar : {PLI.QuantityHours__c}</h1>
+            <lightning-datatable
+                    key-field="id"
+                    data={data}
+                    show-row-number-column
+                    row-number-offset={rowOffset}
+                    suppress-bottom-bar
+                    columns={columns}>
+            </lightning-datatable>
+        </div>
+    </template>
 </template>
