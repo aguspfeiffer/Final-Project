@@ -6,7 +6,7 @@
                     <h3 class="slds-p-horizontal_small">{PLI.Role__c} - Horas a
                         Cubrir:<span>{PLI.QuantityHours__c}</span></h3>
                     <template if:true={PLI.Role__c}>
-                        <c-assign-user-roles roles={PLI.Role__c} record-id={recordId}></c-assign-user-roles>
+                        <c-assign-user-roles roles={PLI} record-id={recordId} ></c-assign-user-roles>
                     </template>
                 </lightning-card>
             </div>
