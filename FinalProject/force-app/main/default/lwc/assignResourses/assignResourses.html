@@ -1,18 +1,15 @@
 <template>
     <template if:true={projectLineItem}>
         <template for:each={projectLineItem} for:item="PLI">
-            <li key={PLI.Id}>
+            <div key={PLI.Id} style="height: 200px;">
                 <lightning-card variant="Narrow" title={PLI.Role__c} icon-name="standard:account">
                     <h3 class="slds-p-horizontal_small">{PLI.Role__c} - Horas a
                         Cubrir:<span>{PLI.QuantityHours__c}</span></h3>
-
-                    <lightning-button label="Asignar" slot="actions"></lightning-button>
-
                     <template if:true={PLI.Role__c}>
                         <c-assign-user-roles roles={PLI.Role__c} record-id={recordId}></c-assign-user-roles>
                     </template>
                 </lightning-card>
-            </li>
+            </div>
         </template>
     </template>
 </template>

@@ -1,33 +1,4 @@
 <template>
-    <table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1" cellspacing="0"
-                            cellpadding="0" style="border-collapse:collapse ;">
-                            <thead>
-                                <tr style="background-color:rgb(61, 73, 88);">
-                                    <th>Select</th>
-                                    <th>Name</th>
-                                    <th>SquadLead</th>
-                                    <th>Rate p/hour</th>
-                                    <th>Start</th>
-                                    <th>End</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <template if:true={users}>
-                                <template for:each={users} for:item="user">
-                                    <tr key={user.Id}>
-                                        <td><input type="checkbox"></td>
-                                        <td>{user.Name}</td>
-                                        <td><input type="checkbox"></td>
-                                        <td>{user.RatePerHour__c}</td>
-                                        <td>
-                                            <lightning-input type="date"></lightning-input>
-                                        </td>
-                                        <td>
-                                            <lightning-input type="date"></lightning-input>
-                                        </td>
-                                    </tr>
-                                </template>
-                            </template>
-                            </tbody>
-                        </table>
+    <lightning-datatable hide-checkbox-column key-field='Id' data={users} columns={columns} onsave={handleSave}>
+    </lightning-datatable>
 </template>

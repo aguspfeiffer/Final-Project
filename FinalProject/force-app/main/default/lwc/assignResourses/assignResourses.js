@@ -7,15 +7,12 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 export default class assignResourses extends LightningElement {
 
     @api recordId; 
-
     projectLineItem;
     
-
     @wire(getRolesByProject, {projectId:'$recordId'})
     wiredProjects({error , data}){
         if(data){
             this.projectLineItem= data;
-            console.log('WRAPER: ', data)
         }
         else if (error){}
     }
