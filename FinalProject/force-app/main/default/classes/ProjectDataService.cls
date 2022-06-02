@@ -3,9 +3,8 @@ public with sharing class ProjectDataService {
     //Obtiene los projectLineItem de un project 
     @AuraEnabled(cacheable = true)
     public static List<ProjectLineItem__c> getRolesByProject (String projectId){
-        return [SELECT Id, Role__c, QuantityHours__c, Project__c, AssignedHours__c FROM ProjectLineItem__c WHERE Project__c =: projectId];
+    return [SELECT Id, Role__c, QuantityHours__c, Project__c, AssignedHours__c FROM ProjectLineItem__c WHERE Project__c =: projectId];
     }
-    
     //Obtiene los usuarios de x Rol
     @AuraEnabled(cacheable = true)
     public static List<User> getUsersByRole (String role, String projectId){
