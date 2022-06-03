@@ -49,8 +49,8 @@ export default class AssignUserRoles extends LightningElement {
                 });
                 this.dispatchEvent(event);
                 this.template.querySelector("lightning-datatable").draftValues = [];
-                
-                
+                const actualTotalHours = new CustomEvent('actualtotalhours')
+                this.dispatchEvent(actualTotalHours)            
         })
         .catch(error=>{
             console.log('CATCH ERROR-->', error)
@@ -63,8 +63,7 @@ export default class AssignUserRoles extends LightningElement {
         })
         .finally(() => {
             this.changedFields = []
-            refreshApex(this.users);
-            
+            refreshApex(this.users);            
         });
     }
 }
