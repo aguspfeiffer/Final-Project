@@ -191,6 +191,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Project__c.PMID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Project__c.QuantityTotalHours__c</field>
         <readable>false</readable>
     </fieldPermissions>

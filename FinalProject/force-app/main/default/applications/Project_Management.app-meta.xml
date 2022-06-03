@@ -81,8 +81,8 @@
         <pageOrSobjectType>standard-home</pageOrSobjectType>
     </actionOverrides>
     <brand>
-        <headerColor>#0070D2</headerColor>
-        <logo>CLOUD_CONSULTING_1_12</logo>
+        <headerColor>#001B3F</headerColor>
+        <logo>Icono_Cuadrado_CLOUD1</logo>
         <logoVersion>1</logoVersion>
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
     </brand>
