@@ -131,6 +131,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>ProjectLineItem__c.ActualTotalHours__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>ProjectLineItem__c.AmountEstimated__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -183,6 +188,11 @@
         <editable>true</editable>
         <field>Project__c.Opportunity__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Project__c.PMID__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
