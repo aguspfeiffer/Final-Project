@@ -3,7 +3,7 @@ public with sharing class ProjectDataService {
     //Obtiene los projectLineItem de un project 
     @AuraEnabled(cacheable = true)
     public static List<ProjectLineItem__c> getRolesByProject (String projectId){
-        return [SELECT Id, Role__c, QuantityHours__c, Project__c, AssignedHours__c FROM ProjectLineItem__c WHERE Project__c =: projectId];
+        return [SELECT Id, Role__c, QuantityHours__c, Project__c, AssignedHours__c, ActualTotalHours__c FROM ProjectLineItem__c WHERE Project__c =: projectId];
     }
 
     //Obtiene los usuarios de x Rol
@@ -21,11 +21,11 @@ public with sharing class ProjectDataService {
 
         //Creamos una List para popular los usuarios disponibles para el proyecto
         List<User> availableUsers = new List<User>();
-       //Filtramos los usuarios y populamos la lista
+        //Filtramos los usuarios y populamos la lista
         for(User user : usersListByRole){
             if(user.ProjectResources__r.isEmpty()){
                 availableUsers.add(user);
-            } else if(!user.ProjectResources__r.isEmpty()){
+            } else {
                 for(ProjectResource__c pr : user.ProjectResources__r){
                 if(pr.ProjectLineItem__r.Project__c != project.Id){
                     assign = false;
@@ -44,4 +44,5 @@ public with sharing class ProjectDataService {
      
         insert resourceToAssign;
     }
+    
 }

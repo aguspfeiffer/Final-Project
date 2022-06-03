@@ -354,6 +354,11 @@
             <field>AmountEstimated__c</field>
             <table>Opportunity.Projects__r.ProjectLineItems__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ActualTotalHours__c</field>
+            <table>Opportunity.Projects__r.ProjectLineItems__r</table>
+        </columns>
         <masterLabel>ProjectLineItems</masterLabel>
     </sections>
     <sections>

@@ -329,4 +329,12 @@
         </columns>
         <masterLabel>Task Assignment</masterLabel>
     </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ActualTotalHours__c</field>
+            <table>Project__c.ProjectLineItems__r</table>
+        </columns>
+        <masterLabel>ProjectLineItems</masterLabel>
+    </sections>
 </ReportType>
