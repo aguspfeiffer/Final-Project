@@ -4,11 +4,19 @@ public with sharing class ProjectResourceTrigger {
 
     public static void onBeforeInsert(List<ProjectResource__c> projectResourses){
         Map<Id, ProjectResource__c> newProjectResourceMap = new Map<Id, ProjectResource__c>();
-
+        Id PLI = projectResourses[0].ProjectLineItem__c;
+               
         //Recorremos la lista que viene por parametro para crear nuestro Mapa newProjectResourceMap, Cada Key del mapa hace referencia a cada Usuario relacionado al NUEVO ProjectResource
         for(ProjectResource__c pr :projectResourses){
             newProjectResourceMap.put(pr.Resource__c, pr);
         }
+        
+
+        ProjectLineItem__c project = [SELECT Project__r.StartProject__c, Project__r.EndProject__c FROM ProjectLineItem__c WHERE Id =: PLI];
+        Date StartProject = project.Project__r.StartProject__c; 
+        Date EndProject = project.Project__r.EndProject__c;
+
+        //Project__c project =[SELECT Id, Name, StartProject__c, EndProject__c FROM Project__c];
 
         //Traemos de la DB los ProjectResource que ya tiene el usuario 
         List<ProjectResource__c> oldProjectResourcesList = [SELECT Id, StartDateResource__c, EndDateResource__c, Resource__c FROM ProjectResource__c WHERE Resource__c IN : newProjectResourceMap.keySet()];
@@ -30,14 +38,25 @@ public with sharing class ProjectResourceTrigger {
 
         //Recorremos los valores de OldProjectResourceMap que coinciden con los ID de los recursos y comparamos que las nuevas fechas asignadas para un nuevo registro de PR no se interpongan con las fechas de los proyectos asignados anteriormente
         for(Id key :newProjectResourceMap.keySet()){
+
+            if(newProjectResourceMap.get(key).StartDateResource__c >= project.Project__r.StartProject__c && newProjectResourceMap.get(key).EndDateResource__c <= project.Project__r.EndProject__c){
+
             if(oldProjectResourceMap.containsKey(key)){
+                
                 for(ProjectResource__c pr :oldProjectResourceMap.get(key)){
-                    if(newProjectResourceMap.get(key).StartDateResource__c < pr.StartDateResource__c && newProjectResourceMap.get(key).EndDateResource__c < pr.StartDateResource__c || newProjectResourceMap.get(key).StartDateResource__c > pr.EndDateResource__c && newProjectResourceMap.get(key).EndDateResource__c > pr.EndDateResource__c ){
-                        readyForInsert.add(newProjectResourceMap.get(key));
-                    } else{
-                        newProjectResourceMap.get(key).addError('The resource ' + newProjectResourceMap.get(key).Name + ' is not available on these Dates');
+
+                        if(newProjectResourceMap.get(key).StartDateResource__c < pr.StartDateResource__c && newProjectResourceMap.get(key).EndDateResource__c < pr.StartDateResource__c || newProjectResourceMap.get(key).StartDateResource__c > pr.EndDateResource__c && newProjectResourceMap.get(key).EndDateResource__c > pr.EndDateResource__c){
+
+                            readyForInsert.add(newProjectResourceMap.get(key));
+                        } else{
+                            newProjectResourceMap.get(key).addError('The resource ' + newProjectResourceMap.get(key).Name + ' is not available on these Dates');
+                        }
                     }
-                }
+                } 
+            }
+            else{
+                newProjectResourceMap.get(key).addError('The dates assigned do not correspond to the dates of the project');
+               
             }
         }        
     }

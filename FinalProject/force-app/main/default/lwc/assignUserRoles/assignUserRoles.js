@@ -21,7 +21,7 @@ export default class AssignUserRoles extends LightningElement {
     changedFields = []
     
     @wire(getUsersByRole, {role:'$rolesToCover.Role__c', projectId:'$recordId'})
-   users
+    users
 
     handleSave(event){
         event.preventDefault()
@@ -48,6 +48,9 @@ export default class AssignUserRoles extends LightningElement {
                 variant: 'success'
                 });
                 this.dispatchEvent(event);
+                this.template.querySelector("lightning-datatable").draftValues = [];
+                
+                
         })
         .catch(error=>{
             console.log('CATCH ERROR-->', error)
@@ -60,8 +63,8 @@ export default class AssignUserRoles extends LightningElement {
         })
         .finally(() => {
             this.changedFields = []
-            this.template.querySelector("lightning-datatable").draftValues = [];
-            refreshApex(this.users)
+            refreshApex(this.users);
+            
         });
     }
 }

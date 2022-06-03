@@ -26,6 +26,10 @@
                 <behavior>Readonly</behavior>
                 <field>AmountEstimated__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>ActualTotalHours__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
