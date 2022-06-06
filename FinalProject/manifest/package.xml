@@ -178,6 +178,10 @@
 		<name>Profile</name>
 	</types>
 	<types>
+		<members>Project__c.New_Task</members>
+		<name>QuickAction</name>
+	</types>
+	<types>
 		<members>PublicReports/Earned_Opportunities_per_Account_fXz</members>
 		<members>PublicReports/Open_Opportunities_4RQ</members>
 		<members>PublicReports/Opportunities_Closed_Won_vs_Closed_Lost_1p2</members>
