@@ -5,6 +5,14 @@ public with sharing class ProjectDataService {
     public static List<ProjectLineItem__c> getRolesByProject (String projectId){
         return [SELECT Id, Role__c, QuantityHours__c, Project__c, AssignedHours__c, ActualTotalHours__c FROM ProjectLineItem__c WHERE Project__c =: projectId];
     }
+    
+    @AuraEnabled(cacheable = true)
+    public static List<Object> getProjectResource(String projectId){
+        
+        List<ProjectLineItem__c> PLI = [SELECT Id, Project__c FROM ProjectLineItem__c WHERE Project__c =: projectId];
+        
+        return [SELECT Name, StartDateResource__c, EndDateResource__c, ProjectLineItem__c FROM ProjectResource__c WHERE ProjectLineItem__c IN : PLI ];
+    }
 
     //Obtiene los usuarios de x Rol
     @AuraEnabled(cacheable = true)
@@ -37,9 +45,14 @@ public with sharing class ProjectDataService {
             }
         }   
         return availableUsers;
-    }   
-
-    @AuraEnabled(cacheable = false)
+    }  
+    
+    @AuraEnabled(cacheable = true)
+    public static List<TaskProject__c> getTaskByUser (){
+        return [SELECT Description__c, Status__c, EstimatedHours__c, RegisterHours__c, ProjectResource__r.Resource__c, Project__c FROM TaskProject__c WHERE ProjectResource__r.Resource__c =: UserInfo.getUserId() ];
+    }
+    
+    @AuraEnabled
     public static void assignResource (List<ProjectResource__c> resourceToAssign){
      
         insert resourceToAssign;
