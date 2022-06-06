@@ -2,7 +2,7 @@
 public with sharing class ProjectResourceTriggerTest {
 
     private static String role ='Developer';
-    private static User dev =[SELECT Id, Name, UserRole.Name FROM User WHERE UserRole.Name = 'Developer' LIMIT 1 ];
+    private static User dev =[SELECT Id, LastName, UserRole.Name FROM User WHERE UserRole.Name = 'Developer' LIMIT 1 ];
 
     private static Opportunity newOpp (Id pm){
         Opportunity newOpp = new Opportunity (
@@ -43,7 +43,7 @@ public with sharing class ProjectResourceTriggerTest {
 
     private static void testProjectResourceTrigger(){
         //SET UP 
-        User pm = [SELECT Id, Name FROM User WHERE Id='0058a00000LoNL9AAN'];
+        User pm = [SELECT Id, Name FROM User WHERE UserRole.Name = 'Project Manager' LIMIT 1];
 
         Opportunity opp = newOpp(pm.Id);
         insert opp;
@@ -91,7 +91,7 @@ public with sharing class ProjectResourceTriggerTest {
             //Assert Error Message
             System.assert( e.getMessage().contains('Insert failed. First exception on ' +
                 'row 0; first error: FIELD_CUSTOM_VALIDATION_EXCEPTION, ' +
-                'The resource Moreno is not available on these Dates: []'), 
+                'The resource '+ dev.LastName +' is not available on these Dates: []'), 
                 e.getMessage() );
 
                 //Assert Status Code
