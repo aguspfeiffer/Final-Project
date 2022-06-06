@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="New Task">
+                <lightning-record-form 
+                object-api-name="TaskProject__c"
+                fields={fields}
+                columns="2"
+                onsuccess={createRecord}
+                ></lightning-record-form>  
+    </lightning-card>
+</template>
