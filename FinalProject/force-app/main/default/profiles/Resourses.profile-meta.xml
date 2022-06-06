@@ -20,7 +20,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ProjectDataServiceTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ProjectResourceTrigger</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ProjectResourceTriggerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
