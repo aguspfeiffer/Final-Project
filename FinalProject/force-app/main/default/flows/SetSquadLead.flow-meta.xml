@@ -36,6 +36,12 @@
             </value>
         </filters>
         <inputAssignments>
+            <field>SquadLeadId__c</field>
+            <value>
+                <elementReference>$Record.Resource__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>SquadLead__c</field>
             <value>
                 <elementReference>$Record.Resource__r.LastName</elementReference>

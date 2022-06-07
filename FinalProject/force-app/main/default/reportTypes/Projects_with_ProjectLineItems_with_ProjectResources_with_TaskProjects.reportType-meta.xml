@@ -113,6 +113,16 @@
             <field>SquadLead__c</field>
             <table>Project__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SquadLeadId__c</field>
+            <table>Project__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ActualTotalAmount__c</field>
+            <table>Project__c</table>
+        </columns>
         <masterLabel>Projects</masterLabel>
     </sections>
     <sections>
@@ -336,5 +346,13 @@
             <table>Project__c.ProjectLineItems__r</table>
         </columns>
         <masterLabel>ProjectLineItems</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Project_Name__c</field>
+            <table>Project__c.ProjectLineItems__r.ProjectResources__r.TaskProjects__r</table>
+        </columns>
+        <masterLabel>TaskProjects</masterLabel>
     </sections>
 </ReportType>

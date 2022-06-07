@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>ActualTotalHours__c</fullName>
-    <description>Horas totales a cubrir menos las horas asignadas hasta el momento</description>
+    <fullName>ActualTotalAmount__c</fullName>
     <externalId>false</externalId>
-    <formula>QuantityHours__c -  AssignedHours__c</formula>
+    <formula>AmountOpp__c - AmountEstimated__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-    <label>ActualTotalHours</label>
+    <label>ActualTotalAmount</label>
     <precision>18</precision>
     <required>false</required>
-    <scale>0</scale>
+    <scale>2</scale>
     <trackTrending>false</trackTrending>
-    <type>Number</type>
-    <unique>false</unique>
+    <type>Currency</type>
 </CustomField>

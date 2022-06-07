@@ -297,6 +297,16 @@
             <field>SquadLead__c</field>
             <table>Opportunity.Projects__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SquadLeadId__c</field>
+            <table>Opportunity.Projects__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ActualTotalAmount__c</field>
+            <table>Opportunity.Projects__r</table>
+        </columns>
         <masterLabel>Projects</masterLabel>
     </sections>
     <sections>

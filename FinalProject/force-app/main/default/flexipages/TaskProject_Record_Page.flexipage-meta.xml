@@ -68,6 +68,12 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>workloadHours</componentName>
+                <identifier>c_workloadHours</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentInstanceProperties>
                     <name>tabs</name>
                     <value>maintabs</value>

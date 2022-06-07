@@ -15,12 +15,6 @@
                 <identifier>desktopDashboards_embeddedDashboard1</identifier>
             </componentInstance>
         </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentName>workloadHours</componentName>
-                <identifier>c_workloadHours</identifier>
-            </componentInstance>
-        </itemInstances>
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>

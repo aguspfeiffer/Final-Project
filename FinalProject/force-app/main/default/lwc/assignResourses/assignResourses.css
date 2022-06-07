@@ -4,9 +4,8 @@
     border-color: rgb(168, 210, 236);
     border-radius: 5px;
     display: inline;
-    text-align: center;
-    table-layout: fixed;
-    
+    text-align: left;
+    table-layout: fixed;    
 }
 
 .horas{
