@@ -50,8 +50,20 @@ public with sharing class ProjectDataService {
     
     //Obtiene las tareas asignadas al Usuario logueado
     @AuraEnabled(cacheable = true)
-    public static List<TaskProject__c> getTaskByUser (){
-        return [SELECT Description__c, Status__c, EstimatedHours__c, RegisterHours__c, ProjectResource__r.Resource__c, Project__c FROM TaskProject__c WHERE ProjectResource__r.Resource__c =: UserInfo.getUserId() ];
+    public static Map<String, List<TaskProject__c>> getTaskByUser (){
+        List<TaskProject__c> tasksList = [SELECT Project_Name__c, Name, Description__c, Status__c, EstimatedHours__c, RegisterHours__c, ProjectResource__r.Resource__c, Project__c FROM TaskProject__c WHERE OwnerId =: UserInfo.getUserId() AND Status__c != 'Completed' ORDER BY Status__c DESC];
+
+        Map<String, List<TaskProject__c>> taskListByProjectMap = new Map<String, List<TaskProject__c>>();
+
+        for(TaskProject__c tsk: tasksList){
+            if(taskListByProjectMap.containsKey(tsk.Project_Name__c)){
+                taskListByProjectMap.get(tsk.Project_Name__c).add(tsk);
+            } else{
+                taskListByProjectMap.put(tsk.Project_Name__c, new List<TaskProject__c>{tsk});
+            }
+        }
+
+        return taskListByProjectMap;
     }
     
     //Crea en la DB la asignacion de los recursos provenientes del front

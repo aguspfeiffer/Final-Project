@@ -179,6 +179,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Project__c.ActualTotalAmount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Project__c.AmountEstimated__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -220,6 +225,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>TaskProject__c.EstimatedHours__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>TaskProject__c.ProjectResource__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>TaskProject__c.Project_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
