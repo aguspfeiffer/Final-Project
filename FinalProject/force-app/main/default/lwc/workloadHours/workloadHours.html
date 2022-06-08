@@ -1,7 +1,7 @@
 <template>
     <template if:true={tasksByProject} for:each={tasksByProject} for:item="project">
         <lightning-card key={project.key} title={project.key} icon-name="standard:account">
-            <div class="slds-grid" style="height: 40px; font-weight: bold; text-align: center">
+            <div class="encabezado slds-box_xx-small" style="font-weight: bold; text-align: center">
                 <div class="slds-col slds-size_1-of-6">TASKS</div>
                 <div class="slds-col slds-size_1-of-6">STATUS</div>
                 <div class="slds-col slds-size_1-of-6">ESTIMATED HS</div>
@@ -9,10 +9,11 @@
                 <div class="slds-col slds-size_1-of-6">INSERT HS</div>
                 <div class="slds-col slds-size_1-of-6"></div>
             </div>
+        <!-- </br> -->
             <template if:true={project.value} for:each={project.value} for:item="task">
                 <lightning-record-edit-form key={task.Id} object-api-name="TaskProject__c" record-id={task.Id}>
                     <lightning-messages></lightning-messages>
-                    <div class="slds-grid" style="text-align: center">
+                    <div class="recordform slds-grid" style="text-align: center">
                         <div class="slds-col slds-size_1-of-6">
                             <lightning-output-field field-name="Name" variant="label-hidden"></lightning-output-field>
                         </div>
@@ -25,26 +26,31 @@
                         <div class="slds-col slds-size_1-of-6">
                             <lightning-output-field field-name="RegisterHours__c" variant="label-hidden"></lightning-output-field>
                         </div>
+
+                        <!-- INSERT HS -->
                         <div class="slds-col slds-size_1-of-6" if:true={task.InProgress__c}>
-                            <lightning-input variant="label-hidden"></lightning-input>
+                            <lightning-input type="number" variant="label-hidden" onchange={handleChage}></lightning-input>
                         </div>
                         <div class="slds-col slds-size_1-of-6" if:false={task.InProgress__c}>
                             <lightning-output-field field-name="" variant="label-hidden"></lightning-output-field>
                         </div>
+
+                        <!-- BOTONES -->
                         <div class="slds-col slds-size_1-of-6" if:true={task.InProgress__c}>
                             <lightning-button-group>
-                                <lightning-button label="Register Hs" onclick={handleRegisterHours}></lightning-button>
-                                <lightning-button label="Completed" onclick={taskClick}></lightning-button>
+                                <lightning-button icon-name="utility:clock" label="Register Hs" onclick={handleRegisterHours} data-id={task.Id}></lightning-button>
+                                <lightning-button icon-name="utility:success" label="Completed" onclick={taskClick}></lightning-button>
                             </lightning-button-group>
                         </div>
                         <div class="slds-col slds-size_1-of-6" if:false={task.InProgress__c}>
                             <lightning-button-group>
-                                <lightning-button label="Begin"></lightning-button>
+                                <lightning-button icon-name="utility:play" label="Begin" data-id={task.Id} onclick={onClickBegin}></lightning-button>
                             </lightning-button-group>
                         </div>
                     </div> 
                 </lightning-record-edit-form>
             </template>
+            <p slot="footer">@cloud consulting®</p>
         </lightning-card>
     </template>
 </template>

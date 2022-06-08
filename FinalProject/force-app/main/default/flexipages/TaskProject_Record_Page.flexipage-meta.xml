@@ -43,6 +43,16 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>workloadHours</componentName>
+                <identifier>c_workloadHours2</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-385d2129-29ee-48a4-a95d-76fa802cbab7</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
                 <componentInstanceProperties>
                     <name>active</name>
                     <value>true</value>
@@ -57,6 +67,20 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
                 <identifier>detailTab</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-385d2129-29ee-48a4-a95d-76fa802cbab7</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>WorkLoadHours</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+                <identifier>flexipage_tab</identifier>
             </componentInstance>
         </itemInstances>
         <name>maintabs</name>

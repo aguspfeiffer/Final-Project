@@ -51,7 +51,7 @@ public with sharing class ProjectDataService {
     //Obtiene las tareas asignadas al Usuario logueado
     @AuraEnabled(cacheable = true)
     public static Map<String, List<TaskProject__c>> getTaskByUser (){
-        List<TaskProject__c> tasksList = [SELECT Project_Name__c, InProgress__c, Name, Description__c, Status__c, EstimatedHours__c, RegisterHours__c, ProjectResource__r.Resource__c, Project__c FROM TaskProject__c WHERE OwnerId =: UserInfo.getUserId() AND Status__c != 'Completed' ORDER BY Status__c DESC];
+        List<TaskProject__c> tasksList = [SELECT Project_Name__c, InProgress__c, Name, Description__c, Status__c, EstimatedHours__c, RegisterHours__c, InsertHs__c, ProjectResource__r.Resource__c, Project__c FROM TaskProject__c WHERE OwnerId =: UserInfo.getUserId() AND Status__c != 'Completed' ORDER BY Status__c DESC];
 
         Map<String, List<TaskProject__c>> taskListByProjectMap = new Map<String, List<TaskProject__c>>();
 
