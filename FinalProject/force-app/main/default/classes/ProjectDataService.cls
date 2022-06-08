@@ -3,9 +3,13 @@ public with sharing class ProjectDataService {
     //Obtiene los projectLineItem de un proyecto 
     @AuraEnabled(cacheable = true)
     public static List<ProjectLineItem__c> getRolesByProject (String projectId){
+<<<<<<< Updated upstream
         return [SELECT Id, Role__c, QuantityHours__c, Project__c, AssignedHours__c,Project__r.ActualTotalAmount__c, ActualTotalHours__c FROM ProjectLineItem__c WHERE Project__c =: projectId];
+=======
+        return [SELECT Id, Role__c, QuantityHours__c, Project__c, AssignedHours__c, Project__r.ActualTotalAmount__c, ActualTotalHours__c FROM ProjectLineItem__c WHERE Project__c =: projectId];
+>>>>>>> Stashed changes
     }
-    
+        
     //Obtiene todos los Recursos asignados a un determinado proyecto
     @AuraEnabled(cacheable = true)
     public static List<Object> getProjectResource(String projectId){
