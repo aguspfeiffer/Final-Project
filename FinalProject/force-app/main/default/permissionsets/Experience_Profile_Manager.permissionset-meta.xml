@@ -207,6 +207,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>TaskProject__c.InsertHs__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>TaskProject__c.ProjectResource__c</field>
         <readable>false</readable>
     </fieldPermissions>

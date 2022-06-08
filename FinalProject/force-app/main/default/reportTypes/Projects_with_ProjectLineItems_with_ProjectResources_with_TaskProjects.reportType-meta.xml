@@ -314,11 +314,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>RegisterHours__c</field>
-            <table>Project__c.ProjectLineItems__r.ProjectResources__r.TaskProjects__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Resume__c</field>
             <table>Project__c.ProjectLineItems__r.ProjectResources__r.TaskProjects__r</table>
         </columns>
@@ -356,6 +351,16 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>InProgress__c</field>
+            <table>Project__c.ProjectLineItems__r.ProjectResources__r.TaskProjects__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>InsertHs__c</field>
+            <table>Project__c.ProjectLineItems__r.ProjectResources__r.TaskProjects__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>RegisterHours__c</field>
             <table>Project__c.ProjectLineItems__r.ProjectResources__r.TaskProjects__r</table>
         </columns>
         <masterLabel>TaskProjects</masterLabel>

@@ -1,13 +1,7 @@
-/* .wrapper {
-    display: grid;
-    grid-template-columns: auto;
-    line-gap-override: 20%;   
-    grid-auto-rows: max-content
-  } */
 
 .encabezado{
     background-color: rgb(168, 210, 236);
-    border-color: rgb(23, 27, 29);  
+    border-color: rgb(23, 27, 29);
     border-radius: 5px;
     border: 1px; 
     border-left: 20px;
@@ -21,4 +15,3 @@
     padding-bottom: 4px;
     padding-block-end: 4px;
   }
-
