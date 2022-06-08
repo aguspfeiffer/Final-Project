@@ -1,49 +1,50 @@
 <template>
-    <template if:true={tasksByProject}>
-        <template for:each={tasksByProject} for:item="project">
-            <lightning-card key={project.key}>
-                <h3>{project.key}</h3>
-                    <div if:true={project.value}>
-                        <lightning-datatable suppress-bottom-bar="true" hide-checkbox-column key-field='Id' data={project.value} columns={columns}
-                            onsave={handleSave}>
-                        </lightning-datatable>
+    <template if:true={tasksByProject} for:each={tasksByProject} for:item="project">
+        <lightning-card key={project.key} title={project.key} icon-name="standard:account">
+            <div class="slds-grid" style="height: 40px; font-weight: bold; text-align: center">
+                <div class="slds-col slds-size_1-of-6">TASKS</div>
+                <div class="slds-col slds-size_1-of-6">STATUS</div>
+                <div class="slds-col slds-size_1-of-6">ESTIMATED HS</div>
+                <div class="slds-col slds-size_1-of-6">REGISTER HS</div>
+                <div class="slds-col slds-size_1-of-6">INSERT HS</div>
+                <div class="slds-col slds-size_1-of-6"></div>
+            </div>
+            <template if:true={project.value} for:each={project.value} for:item="task">
+                <lightning-record-edit-form key={task.Id} object-api-name="TaskProject__c" record-id={task.Id}>
+                    <lightning-messages></lightning-messages>
+                    <div class="slds-grid" style="text-align: center">
+                        <div class="slds-col slds-size_1-of-6">
+                            <lightning-output-field field-name="Name" variant="label-hidden"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6">
+                            <lightning-output-field field-name="Status__c" variant="label-hidden"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6">
+                            <lightning-output-field field-name="EstimatedHours__c" variant="label-hidden"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6">
+                            <lightning-output-field field-name="RegisterHours__c" variant="label-hidden"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6" if:true={task.InProgress__c}>
+                            <lightning-input variant="label-hidden"></lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6" if:false={task.InProgress__c}>
+                            <lightning-output-field field-name="" variant="label-hidden"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6" if:true={task.InProgress__c}>
+                            <lightning-button-group>
+                                <lightning-button label="Register Hs" onclick={handleRegisterHours}></lightning-button>
+                                <lightning-button label="Completed" onclick={taskClick}></lightning-button>
+                            </lightning-button-group>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6" if:false={task.InProgress__c}>
+                            <lightning-button-group>
+                                <lightning-button label="Begin"></lightning-button>
+                            </lightning-button-group>
+                        </div>
                     </div> 
-            </lightning-card>
-        </template>
+                </lightning-record-edit-form>
+            </template>
+        </lightning-card>
     </template>
 </template>
-
-<!-- RECORD EDIT FORM
-<lightning-card>
-        <lightning-record-edit-form object-api-name="TaskProject__c" record-id={recordId}>
-            <lightning-messages></lightning-messages>
-            <div class="slds-grid">
-                <div class="slds-col slds-size_1-of-5">
-                    <lightning-output-field field-name="Name"></lightning-output-field>
-                </div>
-                <div class="slds-col slds-size_1-of-5">
-                    <lightning-output-field field-name="Status__c"></lightning-output-field>
-                </div>
-                <div class="slds-col slds-size_1-of-5">
-                    <lightning-output-field field-name="EstimatedHours__c"></lightning-output-field>
-                </div>
-                <div class="slds-col slds-size_1-of-5">
-                    <lightning-input-field field-name="RegisterHours__c"></lightning-input-field>
-                </div>
-                <div class="slds-col slds-size_1-of-5">
-                    <lightning-layout horizontal-alling="end" vertical-alling="center">
-                        <div class="slds-m-right_x-small slds-float_right">
-                            <lightning-button type="submit" variant="brand" label="Register Hours"></lightning-button>
-                            <lightning-button type="submit" variant="brand" label="Mark Completed"></lightning-button>
-                        </div>
-                    </lightning-layout>
-                </div>
-            </div>
-            <<div class="slds-m-right_x-small slds-float_right">
-                <lightning-layout horizontal-alling="end" vertical-alling="center">
-                    <lightning-button type="submit" variant="brand" label="Register Hours"></lightning-button>
-                    <lightning-button type="submit" variant="brand" label="Mark Completed"></lightning-button>
-                </lightning-layout>
-            </div>
-        </lightning-record-edit-form>
-    </lightning-card> -->

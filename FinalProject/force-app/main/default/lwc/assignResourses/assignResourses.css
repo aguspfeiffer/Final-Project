@@ -1,16 +1,37 @@
 .content {
     font-weight: bold;
-    background-color: rgb(168, 210, 236);
-    border-color: rgb(168, 210, 236);
     border-radius: 5px;
     display: inline;
-    text-align: left;
-    table-layout: fixed;    
+    table-layout: fixed;
 }
-
 .horas{
     color: rgb(15, 25, 75);
     text-decoration: solid;
-    background-color:rgb(168, 210, 236);
     border-radius: 3px;
+
+}
+
+.monto{
+    color: rgb(15, 25, 75);
+    text-decoration: solid;
+    border-radius: 3px;
+
+}
+
+.horasmonto{
+background-color: rgb(168, 210, 236);
+border-color: rgb(168, 210, 236);
+margin: auto;
+display: flex;
+justify-content: space-between;
+align-items: center; 
+border-radius: 3px;
+}
+
+.verde{
+    text-align: right;
+}
+
+.rojo{
+  text-align: right;
 }

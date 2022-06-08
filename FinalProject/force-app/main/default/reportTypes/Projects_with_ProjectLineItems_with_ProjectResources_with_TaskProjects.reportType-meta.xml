@@ -353,6 +353,11 @@
             <field>Project_Name__c</field>
             <table>Project__c.ProjectLineItems__r.ProjectResources__r.TaskProjects__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>InProgress__c</field>
+            <table>Project__c.ProjectLineItems__r.ProjectResources__r.TaskProjects__r</table>
+        </columns>
         <masterLabel>TaskProjects</masterLabel>
     </sections>
 </ReportType>

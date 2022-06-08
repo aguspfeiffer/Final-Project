@@ -63,6 +63,7 @@ export default class AssignUserRoles extends LightningElement {
         })
         .finally(() => {
             this.changedFields = []
+            this.newProjectResources = []
             refreshApex(this.users);            
         });
     }
