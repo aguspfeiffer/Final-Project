@@ -1,4 +1,5 @@
 <template>
+<<<<<<< Updated upstream
     <template if:true={projectLineItemList.data}>
         <div class="slds-text-color_error rojo" if:false={isProfitable}>'The project is at a Loss'</div>
         <div class="slds-text-color_success verde" if:true={isProfitable}>'The project is Profitable' </div>
@@ -13,6 +14,7 @@
                     <br />
                     <c-assign-user-roles roles-to-cover={PLI} record-id={recordId} onactualtotalhours={refresh}>
                     </c-assign-user-roles>
+                    <p slot="footer">@cloud consulting®</p>
                 </lightning-card>
             </div>
         </template>
@@ -22,14 +24,33 @@
 <!-- <template>
     <template if:true={projectLineItemList.data}>
         <template for:each={projectLineItemList.data} for:item="PLI">
+=======
+    <template if:true={projectLineItemList}>
+        <div class="slds-text-color_error rojo" if:false={isProfitable}>'The project is at a Loss'
+        </div>
+        <div class="slds-text-color_success verde" if:true={isProfitable}>'The project is
+            Profitable' </div>
+        <template for:each={projectLineItemList} for:item="PLI">
+>>>>>>> Stashed changes
             <div class="content" key={PLI.Id} style="height: 200px;">
-                <lightning-card class="row dark-background slds-text-heading_small" variant="Narrow" title={PLI.Role__c} icon-name="standard:account">
-                    <h3 class="slds-p-horizontal_small horas"> Horas a
-                        Cubrir: <span>{PLI.ActualTotalHours__c}</span> hs.</h3>
-                        <br />
-                        <c-assign-user-roles roles-to-cover={PLI} record-id={recordId} onactualtotalhours={refresh}></c-assign-user-roles>                                        
+                <lightning-card class="row dark-background slds-text-heading_small" variant="Narrow" title={PLI.Role__c}
+                    icon-name="standard:customers">
+
+                    <div class="horasmonto">
+                        <h3 class="slds-p-horizontal_small"> Hours to Cover: <span>{PLI.ActualTotalHours__c}</span> hs.
+                        </h3>
+
+                    </div>
+                    <br />
+                    <c-assign-user-roles roles-to-cover={PLI} record-id={recordId} onactualtotalhours={refresh}>
+                    </c-assign-user-roles>
                 </lightning-card>
-                </div>            
+            </div>
         </template>
     </template>
+<<<<<<< Updated upstream
 </template> -->
+=======
+</template>
+
+>>>>>>> Stashed changes
