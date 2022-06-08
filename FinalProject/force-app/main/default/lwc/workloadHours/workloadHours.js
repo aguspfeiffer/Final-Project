@@ -1,28 +1,10 @@
 import { LightningElement, wire, api } from 'lwc';
 import getTaskByUser from '@salesforce/apex/ProjectDataService.getTaskByUser';
 
-const columns = [
-    { label: 'Task', fieldName: 'Name' },
-    { label: 'Status', fieldName: 'Status__c', type: 'text' },
-    { label: 'Estimated Hours', fieldName: 'EstimatedHours__c', type: 'number'},
-    { label: 'Resgister Hours', fieldName: 'RegisterHours__c', type: 'number' },
-    { label: 'Insert Hours', fieldName: 'RegisterHours__c', type: 'number', editable : true},
-    {type: "button", typeAttributes: {
-        label: 'Begin',
-        name: 'Begin',
-        title: 'Begin', 
-        disabled: false,
-        value: 'edit',
-        iconPosition: 'left'
-    }}]
-
 export default class WorkloadHours extends LightningElement {
     @api recordId;
     tasksByProject = []
     nonStartTask = []
-    columns = columns
-    //@api objectApiName;
-
 
     @wire(getTaskByUser)
     wiredTasks({data,error}){
@@ -30,11 +12,18 @@ export default class WorkloadHours extends LightningElement {
             for(let key in data){
                 this.tasksByProject.push({value:data[key], key:key})
             }
-
+            console.log('tasksByProject-->',this.tasksByProject);
         } else if(error){
             console.log(error)
         }
     }
 
+    handleRegisterHours(event){
+        console.log('EVENT-->',JSON.stringify(event))
+    }
+
+    taskCompleted(event){
+        console.log('EVENT taskCompleted', event)
+    }
     
 }

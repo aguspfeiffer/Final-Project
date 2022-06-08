@@ -35,6 +35,10 @@
                 <behavior>Readonly</behavior>
                 <field>Project_Name__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>InProgress__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

@@ -3,7 +3,7 @@ public with sharing class ProjectDataService {
     //Obtiene los projectLineItem de un proyecto 
     @AuraEnabled(cacheable = true)
     public static List<ProjectLineItem__c> getRolesByProject (String projectId){
-        return [SELECT Id, Role__c, QuantityHours__c, Project__c, AssignedHours__c, ActualTotalHours__c FROM ProjectLineItem__c WHERE Project__c =: projectId];
+        return [SELECT Id, Role__c, QuantityHours__c, Project__c, AssignedHours__c,Project__r.ActualTotalAmount__c, ActualTotalHours__c FROM ProjectLineItem__c WHERE Project__c =: projectId];
     }
     
     //Obtiene todos los Recursos asignados a un determinado proyecto
@@ -20,7 +20,7 @@ public with sharing class ProjectDataService {
     public static List<User> getUsersByRole (String role, String projectId){
         Boolean assign = true;
         //Buscamos en la DB el proyecto actual
-        Project__c project =[SELECT Id, Name, StartProject__c, EndProject__c FROM Project__c WHERE Id =: projectId];
+        Project__c project =[SELECT Id, Name, StartProject__c, EndProject__c, ActualTotalAmount__c FROM Project__c WHERE Id =: projectId];
        
         Date startProject = project.StartProject__c;
         Date endProject = project.EndProject__c;
@@ -51,7 +51,7 @@ public with sharing class ProjectDataService {
     //Obtiene las tareas asignadas al Usuario logueado
     @AuraEnabled(cacheable = true)
     public static Map<String, List<TaskProject__c>> getTaskByUser (){
-        List<TaskProject__c> tasksList = [SELECT Project_Name__c, Name, Description__c, Status__c, EstimatedHours__c, RegisterHours__c, ProjectResource__r.Resource__c, Project__c FROM TaskProject__c WHERE OwnerId =: UserInfo.getUserId() AND Status__c != 'Completed' ORDER BY Status__c DESC];
+        List<TaskProject__c> tasksList = [SELECT Project_Name__c, InProgress__c, Name, Description__c, Status__c, EstimatedHours__c, RegisterHours__c, ProjectResource__r.Resource__c, Project__c FROM TaskProject__c WHERE OwnerId =: UserInfo.getUserId() AND Status__c != 'Completed' ORDER BY Status__c DESC];
 
         Map<String, List<TaskProject__c>> taskListByProjectMap = new Map<String, List<TaskProject__c>>();
 
