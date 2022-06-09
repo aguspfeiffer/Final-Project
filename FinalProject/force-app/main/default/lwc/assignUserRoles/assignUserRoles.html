@@ -1,5 +1,5 @@
 <template>
-    <div if:true={users.data}>
+    <div class="table" if:true={users.data}>
         <lightning-datatable hide-checkbox-column key-field='Id' data={users.data} columns={columns}
             onsave={handleSave}>
         </lightning-datatable>

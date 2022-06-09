@@ -1,8 +1,7 @@
 <template>
-<<<<<<< Updated upstream
     <template if:true={projectLineItemList.data}>
-        <div class="slds-text-color_error rojo" if:false={isProfitable}>'The project is at a Loss'</div>
-        <div class="slds-text-color_success verde" if:true={isProfitable}>'The project is Profitable' </div>
+        <div class="slds-text-color_error rojo" if:false={isProfitable}><h3 class="sizeh3">'The project is at a Loss'</h3></div>
+        <div class="slds-text-color_success verde" if:true={isProfitable}><h3 class="sizeh3">'The project is Profitable'</h3></div>
         <template for:each={projectLineItemList.data} for:item="PLI">
             <div class="content" key={PLI.Id} style="height: 200px;">
                 <lightning-card class="row dark-background slds-text-heading_small" variant="Narrow" title={PLI.Role__c}
@@ -14,7 +13,7 @@
                     <br />
                     <c-assign-user-roles roles-to-cover={PLI} record-id={recordId} onactualtotalhours={refresh}>
                     </c-assign-user-roles>
-                    <p slot="footer">@cloud consulting®</p>
+                    <p class="opacity" slot="footer">@cloud consulting®</p>
                 </lightning-card>
             </div>
         </template>
@@ -24,14 +23,6 @@
 <!-- <template>
     <template if:true={projectLineItemList.data}>
         <template for:each={projectLineItemList.data} for:item="PLI">
-=======
-    <template if:true={projectLineItemList}>
-        <div class="slds-text-color_error rojo" if:false={isProfitable}>'The project is at a Loss'
-        </div>
-        <div class="slds-text-color_success verde" if:true={isProfitable}>'The project is
-            Profitable' </div>
-        <template for:each={projectLineItemList} for:item="PLI">
->>>>>>> Stashed changes
             <div class="content" key={PLI.Id} style="height: 200px;">
                 <lightning-card class="row dark-background slds-text-heading_small" variant="Narrow" title={PLI.Role__c}
                     icon-name="standard:customers">
@@ -48,9 +39,4 @@
             </div>
         </template>
     </template>
-<<<<<<< Updated upstream
 </template> -->
-=======
-</template>
-
->>>>>>> Stashed changes

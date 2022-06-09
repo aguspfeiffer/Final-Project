@@ -10,7 +10,6 @@ export default class assignResourses extends LightningElement {
     isProfitable
 
     @wire(getRolesByProject, {projectId:'$recordId'})
-<<<<<<< Updated upstream
    wiredProjectLineItemList(result){
     this.projectLineItemList = result;
     const {data,error} = result
@@ -22,18 +21,6 @@ export default class assignResourses extends LightningElement {
             console.log('ERROR-->', error)
        }
    }
-=======
-   wiredprojectLineItemList({data, error}){
-       if(data){
-           this.projectLineItemList = data;
-           console.log('ESTO ES DATA: ', data)
-           this.isProfitable = this.projectLineItemList[0].Project__r.ActualTotalAmount__c
-           console.log('ISPROFITABLE: ', this.isProfitable )
-       }
-   }
-
-
->>>>>>> Stashed changes
 
     refresh(){
         refreshApex(this.projectLineItemList)
