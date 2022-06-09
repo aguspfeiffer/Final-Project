@@ -26,6 +26,3 @@ export default class assignResourses extends LightningElement {
         refreshApex(this.projectLineItemList)
     }
 }
-
-
-
