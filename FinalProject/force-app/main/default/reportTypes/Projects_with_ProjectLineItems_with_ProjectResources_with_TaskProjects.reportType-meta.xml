@@ -365,4 +365,12 @@
         </columns>
         <masterLabel>TaskProjects</masterLabel>
     </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Project__c</field>
+            <table>Project__c.ProjectLineItems__r.ProjectResources__r</table>
+        </columns>
+        <masterLabel>ProjectResources</masterLabel>
+    </sections>
 </ReportType>

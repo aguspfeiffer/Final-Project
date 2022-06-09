@@ -19,5 +19,6 @@
     <tabs>standard-Account</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>standard-Event</tabs>
+    <tabs>ProjectResource__c</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>

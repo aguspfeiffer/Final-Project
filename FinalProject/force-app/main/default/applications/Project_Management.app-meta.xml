@@ -94,6 +94,7 @@
     <navType>Standard</navType>
     <tabs>standard-home</tabs>
     <tabs>Project__c</tabs>
+    <tabs>ProjectResource__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Project_Management_UtilityBar</utilityBar>
 </CustomApplication>

@@ -7,4 +7,5 @@
     <tabs>standard-AppLauncher</tabs>
     <tabs>Project__c</tabs>
     <tabs>TaskProject__c</tabs>
+    <tabs>ProjectResource__c</tabs>
 </CustomApplication>
