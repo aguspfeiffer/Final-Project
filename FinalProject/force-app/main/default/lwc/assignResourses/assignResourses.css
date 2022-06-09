@@ -2,19 +2,28 @@
     font-weight: bold;
     border-radius: 5px;
     display: inline;
+<<<<<<< Updated upstream
     table-layout: fixed;
+=======
+    table-layout: fixed;  
+>>>>>>> Stashed changes
 }
 .horas{
     color: rgb(15, 25, 75);
     text-decoration: solid;
     border-radius: 3px;
+<<<<<<< Updated upstream
 
+=======
+          
+>>>>>>> Stashed changes
 }
 
 .monto{
     color: rgb(15, 25, 75);
     text-decoration: solid;
     border-radius: 3px;
+<<<<<<< Updated upstream
 
 }
 
@@ -34,4 +43,23 @@ border-radius: 3px;
 
 .rojo{
   text-align: right;
+=======
+    
+   }
+  .horasmonto{
+    background-color: rgb(168, 210, 236);
+    border-color: rgb(168, 210, 236);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    border-radius: 3px;  
+  }
+
+  .verde{
+      text-align: right;
+  }
+  .rojo{
+    text-align: right;
+>>>>>>> Stashed changes
 }
