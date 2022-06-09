@@ -3,11 +3,7 @@ public with sharing class ProjectDataService {
     //Obtiene los projectLineItem de un proyecto 
     @AuraEnabled(cacheable = true)
     public static List<ProjectLineItem__c> getRolesByProject (String projectId){
-<<<<<<< Updated upstream
-        return [SELECT Id, Role__c, QuantityHours__c, Project__c, AssignedHours__c,Project__r.ActualTotalAmount__c, ActualTotalHours__c FROM ProjectLineItem__c WHERE Project__c =: projectId];
-=======
         return [SELECT Id, Role__c, QuantityHours__c, Project__c, AssignedHours__c, Project__r.ActualTotalAmount__c, ActualTotalHours__c FROM ProjectLineItem__c WHERE Project__c =: projectId];
->>>>>>> Stashed changes
     }
         
     //Obtiene todos los Recursos asignados a un determinado proyecto
@@ -55,7 +51,7 @@ public with sharing class ProjectDataService {
     //Obtiene las tareas asignadas al Usuario logueado
     @AuraEnabled(cacheable = true)
     public static Map<String, List<TaskProject__c>> getTaskByUser (){
-        List<TaskProject__c> tasksList = [SELECT Project_Name__c, InProgress__c, Name, Description__c, Status__c, EstimatedHours__c, RegisterHours__c, InsertHs__c, ProjectResource__r.Resource__c, Project__c, StartTask__c, EndTask__c FROM TaskProject__c WHERE OwnerId =: UserInfo.getUserId() AND Status__c != 'Completed' ORDER BY  StartTask__c, Status__c DESC];
+        List<TaskProject__c> tasksList = [SELECT Project_Name__c, InProgress__c, Name, Description__c, Status__c, EstimatedHours__c, RegisterHours__c, InsertHs__c, ProjectResource__r.Resource__c, Project__c, StartTask__c, EndTask__c FROM TaskProject__c WHERE OwnerId =: UserInfo.getUserId() AND Status__c != 'Completed' ORDER BY Status__c DESC, StartTask__c];
 
         Map<String, List<TaskProject__c>> taskListByProjectMap = new Map<String, List<TaskProject__c>>();
 
