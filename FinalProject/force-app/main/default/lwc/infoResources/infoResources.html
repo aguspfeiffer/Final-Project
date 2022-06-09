@@ -1,6 +1,15 @@
 <template>
+    <lightning-card class="row dark-background slds-text-heading_small"
+    icon-name="utility:info">
+    <div class="recursos">
+        <h3 class="slds-text-color_inverse slds-p-horizontal_small"> Project Resources Info
+        </h3>
+    </div>
+    <br />
     <div if:true={wiredPR.data}>
         <lightning-datatable hide-checkbox-column key-field='Id' data={wiredPR.data} columns={columns}>
         </lightning-datatable>   
     </div>
+    <p class="opacity" slot="footer">@cloud consulting®</p>
+</lightning-card>
 </template>

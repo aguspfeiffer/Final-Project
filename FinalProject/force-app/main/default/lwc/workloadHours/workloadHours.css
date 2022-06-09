@@ -1,5 +1,6 @@
+
 .encabezado{
-    background-color: rgb(168, 210, 236);
+    background-color: rgb(0, 161, 224);
     border-color: rgb(23, 27, 29);
     border-radius: 5px;
     border: 1px; 
@@ -13,5 +14,10 @@
 .recordform{
     padding-bottom: 4px;
     padding-block-end: 4px;
-    
-  }
+
+}
+
+  .opacity{
+    opacity: 50%;
+}
+

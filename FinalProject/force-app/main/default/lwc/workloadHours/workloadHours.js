@@ -29,6 +29,7 @@ export default class WorkloadHours extends LightningElement {
     }
 
     BeginTask(event){
+
         let taskId = event.currentTarget.dataset.id;
         let registerhs = Number(event.currentTarget.dataset.registerhs);
 
@@ -59,6 +60,7 @@ export default class WorkloadHours extends LightningElement {
                   this.dispatchEvent(event);
             })
     }
+
 
     CompletedTask(event){
         let taskId = event.currentTarget.dataset.id;
