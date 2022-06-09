@@ -1,6 +1,6 @@
 <template>
     <template if:true={tasksByProject} for:each={tasksByProject} for:item="project">
-        <lightning-card key={project.key} title={project.key} icon-name="standard:account">
+        <lightning-card key={project.projectName} title={project.projectName} icon-name="standard:account">
             <div class="encabezado slds-box_xx-small" style="font-weight: bold; text-align: center">
                 <div class="slds-col slds-size_1-of-6">TASKS</div>
                 <div class="slds-col slds-size_1-of-6">STATUS</div>
@@ -9,8 +9,8 @@
                 <div class="slds-col slds-size_1-of-6">INSERT HS</div>
                 <div class="slds-col slds-size_1-of-6"></div>
             </div>
-        <!-- </br> -->
-            <template if:true={project.value} for:each={project.value} for:item="task">
+        </br> 
+            <template if:true={project.tasks} for:each={project.tasks} for:item="task">
                 <lightning-record-edit-form key={task.Id} object-api-name="TaskProject__c" record-id={task.Id}>
                     <lightning-messages></lightning-messages>
                     <div class="recordform slds-grid" style="text-align: center">
@@ -29,7 +29,7 @@
 
                         <!-- INSERT HS -->
                         <div class="slds-col slds-size_1-of-6" if:true={task.InProgress__c}>
-                            <lightning-input type="number" variant="label-hidden" onchange={handleChage}></lightning-input>
+                            <lightning-input type="number" variant="label-hidden" onchange={handleChange}></lightning-input>
                         </div>
                         <div class="slds-col slds-size_1-of-6" if:false={task.InProgress__c}>
                             <lightning-output-field field-name="" variant="label-hidden"></lightning-output-field>
@@ -38,13 +38,13 @@
                         <!-- BOTONES -->
                         <div class="slds-col slds-size_1-of-6" if:true={task.InProgress__c}>
                             <lightning-button-group>
-                                <lightning-button icon-name="utility:clock" label="Register Hs" onclick={handleRegisterHours} data-id={task.Id}></lightning-button>
+                                <lightning-button icon-name="utility:clock" label="Register Hs" onclick={handleRegisterHours} data-id={task.Id} data-registerhs={task.RegisterHours__c} data-task={task}></lightning-button>
                                 <lightning-button icon-name="utility:success" label="Completed" onclick={taskClick}></lightning-button>
                             </lightning-button-group>
                         </div>
                         <div class="slds-col slds-size_1-of-6" if:false={task.InProgress__c}>
                             <lightning-button-group>
-                                <lightning-button icon-name="utility:play" label="Begin" data-id={task.Id} onclick={onClickBegin}></lightning-button>
+                                <lightning-button icon-name="utility:play" label="Begin" data-id={task.Id}  onclick={onClickBegin}></lightning-button>
                             </lightning-button-group>
                         </div>
                     </div> 
