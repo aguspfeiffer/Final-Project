@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OnlySquadLead</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( ISNEW() &amp;&amp;  CASESAFEID($User.Id)!= CASESAFEID( ProjectResource__r.ProjectLineItem__r.Project__r.SquadLeadId__c )   , true, false)</errorConditionFormula>
+    <errorMessage>Only Squad Lead can be assign a task</errorMessage>
+</ValidationRule>

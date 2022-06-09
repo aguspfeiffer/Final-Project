@@ -311,6 +311,16 @@
             <field>ActualTotalAmount__c</field>
             <table>Opportunity.Projects__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>WorkedHours__c</field>
+            <table>Opportunity.Projects__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>RealAmount__c</field>
+            <table>Opportunity.Projects__r</table>
+        </columns>
         <masterLabel>Projects</masterLabel>
     </sections>
     <sections>
