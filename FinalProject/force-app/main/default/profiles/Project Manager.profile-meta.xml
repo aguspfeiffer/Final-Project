@@ -164,6 +164,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>ProjectResource__c.Project__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>ProjectResource__c.Resource__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -338,6 +343,10 @@
         <object>TaskProject__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <tabVisibilities>
+        <tab>ProjectResource__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Project__c</tab>
         <visibility>DefaultOn</visibility>

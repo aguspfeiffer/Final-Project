@@ -1,7 +1,7 @@
-import { LightningElement, wire, api } from 'lwc';
+import { LightningElement, wire, api, track } from 'lwc';
 import getTaskByUser from '@salesforce/apex/ProjectDataService.getTaskByUser';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import { getFieldDisplayValue, updateRecord } from 'lightning/uiRecordApi';
+import { updateRecord } from 'lightning/uiRecordApi';
 import { refreshApex } from '@salesforce/apex';
 
 import STATUS_FIELD from '@salesforce/schema/TaskProject__c.Status__c';
@@ -10,67 +10,116 @@ import REGISTERHS_FIELD from '@salesforce/schema/TaskProject__c.RegisterHours__c
 
 export default class WorkloadHours extends LightningElement {
     @api recordId;
-    tasksByProject = []
+    @track tasksByProject = []
     insertHs
     tasks
 
     @wire(getTaskByUser)
     wiredTasks(result){
         this.tasks = result
-        console.log('RESULT--->', result)
         const {data,error} = result
+
         if(data){
             for(const projectName in data){
                 this.tasksByProject.push({projectName:projectName, tasks:data[projectName]})
-            }
-            console.log('tasksByProject-->',this.tasksByProject);
+            }  
         } else if(error){
             console.log(error)
         }
     }
 
-   /*  onClickBegin(event){
-        console.log('click');
+    BeginTask(event){
         let taskId = event.currentTarget.dataset.id;
+        let registerhs = Number(event.currentTarget.dataset.registerhs);
 
         const fields = {};
         fields[TASK_ID_FIELD.fieldApiName] = taskId;
         fields[STATUS_FIELD.fieldApiName] = 'In Progress';
+        fields[REGISTERHS_FIELD.fieldApiName] = 0
 
         const recordInput = { fields };
 
         updateRecord(recordInput)
             .then(() => {       
-                refreshApex(this.tasks);                 
+                refreshApex(this.tasks);
+                this.tasksByProject = [];
+                const event = new ShowToastEvent({
+                    title: 'Started Task!',
+                    message: 'Successfully Started Task',
+                    variant: 'success'
+                    });
+                    this.dispatchEvent(event);           
+            }).catch(error=>{
+                console.log('ERROR-->', error)
+                const event = new ShowToastEvent({
+                    title: 'ERROR',
+                    message: error.body.pageErrors[0].message,
+                    variant: 'Error'
+                  });
+                  this.dispatchEvent(event);
             })
-    } */
+    }
+
+    CompletedTask(event){
+        let taskId = event.currentTarget.dataset.id;
+
+        const fields = {};
+        fields[TASK_ID_FIELD.fieldApiName] = taskId;
+        fields[STATUS_FIELD.fieldApiName] = 'Completed';
+
+        const recordInput = { fields };
+
+        updateRecord(recordInput)
+            .then(() => {       
+                refreshApex(this.tasks);
+                this.tasksByProject = [];  
+                const event = new ShowToastEvent({
+                    title: 'Completed Task!',
+                    message: 'Successfully Completed Task',
+                    variant: 'success'
+                    });
+                    this.dispatchEvent(event);               
+            }).catch(error=>{
+                console.log('ERROR-->', error);
+                const event = new ShowToastEvent({
+                    title: 'ERROR',
+                    message: error.body.pageErrors[0].message,
+                    variant: 'Error'
+                  });
+                  this.dispatchEvent(event);
+            })
+    }
 
     handleRegisterHours(event){
         let taskId = event.currentTarget.dataset.id;
-        let registerhs = event.currentTarget.dataset.registerhs;
-        let task = event.currentTarget.dataset.task;
-        console.log('registerhs-->', JSON.stringify(registerhs));
-        console.log('TASK-->', JSON.stringify(task));
-        const oldRegisterHs = getFieldDisplayValue(task, REGISTERHS_FIELD);
-        console.log('OLDregisterHR-->', JSON.stringify(oldRegisterHs) );
-            
-        const fields = {}
-        fields[REGISTERHS_FIELD.fieldApiName] = this.insertHs;
-        fields[TASK_ID_FIELD.fieldApiName] = taskId;
+        let registerhs = Number(event.currentTarget.dataset.registerhs);
 
-        console.log('fields antes del Update-->',fields);
+        const fields = {}
+        fields[TASK_ID_FIELD.fieldApiName] = taskId;
+        fields[REGISTERHS_FIELD.fieldApiName] = registerhs + this.insertHs;
 
         const recordInput = {fields}
-
-        console.log(('recordInput-->', recordInput));
 
         updateRecord(recordInput)
         .then(()=>{
             console.log('RegisterHs Updated!')
-            refreshApex(this.tasks)      
+            refreshApex(this.tasks);
+            this.tasksByProject = [];
+            const event = new ShowToastEvent({
+                title: 'Charged Hours!',
+                message: 'The hours has been Charged',
+                variant: 'success'
+                });
+                this.dispatchEvent(event);      
         })
         .catch(error=>{
-            console.log('ERROR-->', error)
+            console.log('ERROR-->', error);
+            const event = new ShowToastEvent({
+                title: 'ERROR',
+                message: error.body.pageErrors[0].message,
+                variant: 'Error'
+              });
+              this.dispatchEvent(event);
         })
     }
 

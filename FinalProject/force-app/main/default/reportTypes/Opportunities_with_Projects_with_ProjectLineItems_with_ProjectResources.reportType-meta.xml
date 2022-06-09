@@ -442,6 +442,11 @@
             <field>HoursAssigned__c</field>
             <table>Opportunity.Projects__r.ProjectLineItems__r.ProjectResources__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Project__c</field>
+            <table>Opportunity.Projects__r.ProjectLineItems__r.ProjectResources__r</table>
+        </columns>
         <masterLabel>ProjectResources</masterLabel>
     </sections>
 </ReportType>
