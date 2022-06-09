@@ -258,7 +258,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>TaskProject__c.RegisterHours__c</field>
         <readable>true</readable>
     </fieldPermissions>

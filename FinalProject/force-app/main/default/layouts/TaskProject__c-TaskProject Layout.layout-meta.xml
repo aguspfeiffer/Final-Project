@@ -35,6 +35,10 @@
                 <behavior>Readonly</behavior>
                 <field>Project_Name__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>RegisterHours__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -54,8 +58,8 @@
                 <field>AmountToPay__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>RegisterHours__c</field>
+                <behavior>Edit</behavior>
+                <field>InsertHs__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
