@@ -1,7 +1,7 @@
 <template>
     <template if:true={tasksByProject} for:each={tasksByProject} for:item="project">
 
-        <lightning-card key={project.projectName} title={project.projectName} icon-name="standard:account">
+        <lightning-card key={project.projectName} title={project.projectName} icon-name="utility:task">
 
             <div class="encabezado slds-box_xx-small" style="font-weight: bold; text-align: center">
                 <div class="slds-col slds-size_1-of-6">TASKS</div>
@@ -58,7 +58,7 @@
                     </div> 
                 </lightning-record-edit-form>
             </template>
-            <p slot="footer">@cloud consulting®</p>
+            <p class="opacity" slot="footer">@cloud consulting®</p>
         </lightning-card>
     </template>
 </template>

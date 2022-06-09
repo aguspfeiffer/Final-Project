@@ -29,7 +29,7 @@ export default class WorkloadHours extends LightningElement {
         }
     }
 
-   /*  onClickBegin(event){
+    onClickBegin(event){
         console.log('click');
         let taskId = event.currentTarget.dataset.id;
 
@@ -43,7 +43,7 @@ export default class WorkloadHours extends LightningElement {
             .then(() => {       
                 refreshApex(this.tasks);                 
             })
-    } */
+    }
 
     handleRegisterHours(event){
         let taskId = event.currentTarget.dataset.id;
