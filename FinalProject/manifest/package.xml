@@ -192,6 +192,11 @@
 		<members>PublicReports/PercentageofHoursPerRole_Kq1</members>
 		<members>PublicReports/ProjectTotalHoursVsHoursAssigned_bjT</members>
 		<members>PublicReports/Top_3_Opportunities_of_Greater_Amount_AzR</members>
+		<members>PublicReports/Roles_Uxz</members>
+		<members>PublicReports/Projects_in_Progress_GJp</members>
+		<members>PublicReports/Projects_Near_to_Start_CfU</members>
+		<members>PublicReports/Estimated_Hours_vs_Worked_Hours_jVF</member>
+		<members>PublicReports/Sales_vs_Estimated_vs_Real_DRd</member>
 		<name>Report</name>
 	</types>
 	<types>

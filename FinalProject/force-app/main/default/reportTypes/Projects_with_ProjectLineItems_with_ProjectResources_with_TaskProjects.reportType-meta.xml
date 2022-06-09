@@ -123,6 +123,16 @@
             <field>ActualTotalAmount__c</field>
             <table>Project__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>WorkedHours__c</field>
+            <table>Project__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>RealAmount__c</field>
+            <table>Project__c</table>
+        </columns>
         <masterLabel>Projects</masterLabel>
     </sections>
     <sections>
