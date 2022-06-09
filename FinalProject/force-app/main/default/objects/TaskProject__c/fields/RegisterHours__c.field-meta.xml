@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>RegisterHours__c</fullName>
+    <defaultValue>0</defaultValue>
     <externalId>false</externalId>
-    <formula>+  InsertHs__c</formula>
-    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>RegisterHours</label>
     <precision>18</precision>
     <required>false</required>
